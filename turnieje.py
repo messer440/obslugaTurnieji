@@ -8,6 +8,7 @@ import mainWindow_ui
 class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 	def __init__(self, parent=None, name=None, fl=0):
 		super(Turnieje, self).__init__(parent)
+		self.setupUi(self)
 
 	def main(self):
 		self.show()

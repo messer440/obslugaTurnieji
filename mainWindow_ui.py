@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainWindow.ui'
 #
-# Created: Mon May 13 00:32:36 2013
+# Created: Mon May 13 23:20:52 2013
 #      by: PyQt4 UI code generator 4.10.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -27,9 +27,11 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(800, 600)
+        MainWindow.setMinimumSize(QtCore.QSize(800, 600))
         MainWindow.setMaximumSize(QtCore.QSize(1920, 600))
+        MainWindow.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.centralwidget = QtGui.QWidget(MainWindow)
-        self.centralwidget.setMinimumSize(QtCore.QSize(800, 600))
+        self.centralwidget.setMinimumSize(QtCore.QSize(800, 0))
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.gridLayout_2 = QtGui.QGridLayout(self.centralwidget)
         self.gridLayout_2.setSizeConstraint(QtGui.QLayout.SetNoConstraint)

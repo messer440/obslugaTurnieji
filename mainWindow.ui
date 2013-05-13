@@ -10,6 +10,12 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
   <property name="maximumSize">
    <size>
     <width>1920</width>
@@ -18,6 +24,9 @@
   </property>
   <property name="windowTitle">
    <string>Obsługa Turnieji</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="minimumSize">
