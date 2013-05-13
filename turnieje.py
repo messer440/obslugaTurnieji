@@ -3,7 +3,7 @@
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import SIGNAL, SLOT
 import sys, string, re
-import mainWindow_ui
+from src.ui import mainWindow_ui
 
 class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 	def __init__(self, parent=None, name=None, fl=0):
