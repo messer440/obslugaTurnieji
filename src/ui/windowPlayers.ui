@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>windowPlayers</class>
+ <widget class="QMainWindow" name="windowPlayers">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gracze</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>80</y>
+      <width>411</width>
+      <height>471</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="4" column="2">
+      <widget class="QTextBrowser" name="inputPlec"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="plec">
+       <property name="text">
+        <string>Płeć</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QTextBrowser" name="inputImie"/>
+     </item>
+     <item row="6" column="2">
+      <widget class="QPushButton" name="pushButton_6">
+       <property name="text">
+        <string>Następny</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QTextBrowser" name="inputNazw"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="rank">
+       <property name="text">
+        <string>Nr w rankingu</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QTextBrowser" name="inputRank"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="nazwisko">
+       <property name="text">
+        <string>Nazwisko</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QPushButton" name="pushButton_7">
+       <property name="text">
+        <string>Poprzedni</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="imie">
+       <property name="text">
+        <string>Imię</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>791</width>
+      <height>77</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Szukaj</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTextEdit" name="textEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_5">
+       <property name="text">
+        <string>Znajdź</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>100</y>
+      <width>302</width>
+      <height>401</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="infoAction">
+       <property name="font">
+        <font>
+         <family>Verdana</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Działanie na danych z formularza</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_8">
+       <property name="text">
+        <string>Dodaj</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_9">
+       <property name="text">
+        <string>Modyfikuj</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_10">
+       <property name="text">
+        <string>Usuń</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuPlik">
+    <property name="title">
+     <string>Plik</string>
+    </property>
+    <addaction name="actionImportuj"/>
+    <addaction name="actionEksportuj"/>
+    <addaction name="separator"/>
+    <addaction name="actionZakoncz"/>
+   </widget>
+   <addaction name="menuPlik"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionImportuj">
+   <property name="text">
+    <string>Importuj</string>
+   </property>
+  </action>
+  <action name="actionEksportuj">
+   <property name="text">
+    <string>Eksportuj</string>
+   </property>
+  </action>
+  <action name="actionZakoncz">
+   <property name="text">
+    <string>Zakończ</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

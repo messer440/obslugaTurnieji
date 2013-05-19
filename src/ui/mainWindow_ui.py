@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'src/ui/mainWindow.ui'
 #
-# Created: Mon May 13 23:58:05 2013
+# Created: Sun May 19 23:48:55 2013
 #      by: PyQt4 UI code generator 4.10.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -59,12 +59,12 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.stackedWidget, 0, 1, 1, 1)
         self.gridLayout_3 = QtGui.QGridLayout()
         self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
-        self.pushButton_2 = QtGui.QPushButton(self.centralwidget)
-        self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
-        self.gridLayout_3.addWidget(self.pushButton_2, 0, 0, 1, 1)
-        self.pushButton_3 = QtGui.QPushButton(self.centralwidget)
-        self.pushButton_3.setObjectName(_fromUtf8("pushButton_3"))
-        self.gridLayout_3.addWidget(self.pushButton_3, 1, 0, 1, 1)
+        self.gracze = QtGui.QPushButton(self.centralwidget)
+        self.gracze.setObjectName(_fromUtf8("gracze"))
+        self.gridLayout_3.addWidget(self.gracze, 0, 0, 1, 1)
+        self.korty = QtGui.QPushButton(self.centralwidget)
+        self.korty.setObjectName(_fromUtf8("korty"))
+        self.gridLayout_3.addWidget(self.korty, 1, 0, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_3, 0, 5, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -79,6 +79,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "Obsługa Turnieji", None))
         self.pushButton.setText(_translate("MainWindow", "PushButton", None))
-        self.pushButton_2.setText(_translate("MainWindow", "Uczestnicy", None))
-        self.pushButton_3.setText(_translate("MainWindow", "Korty", None))
+        self.gracze.setText(_translate("MainWindow", "Gracze", None))
+        self.korty.setText(_translate("MainWindow", "Korty", None))
 

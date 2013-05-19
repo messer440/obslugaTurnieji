@@ -79,14 +79,14 @@
       <item row="0" column="5">
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="gracze">
           <property name="text">
-           <string>Uczestnicy</string>
+           <string>Gracze</string>
           </property>
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="korty">
           <property name="text">
            <string>Korty</string>
           </property>
