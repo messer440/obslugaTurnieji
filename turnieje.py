@@ -12,7 +12,6 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 		self.setupUi(self)
 
 		self.otherWindow = None
-#		windows = { "players" : PlayersGUI() }
 		
 		### SIGNALS ###
 		self.gracze.connect(self.gracze, SIGNAL('clicked()'), self.openPlayers)
@@ -20,8 +19,6 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 
 	def openPlayers(self):
 		self.otherWindow = playerGUI.PlayersGUI() 
-		#windows[nameOfWindow]
-#		self.connect(self.otherWindow, SIGNAL('closed()')
 		self.otherWindow.show()
 
 	def main(self):
