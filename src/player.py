@@ -5,6 +5,8 @@ class Player:
 		self.fName = fName
 		self.lName = lName
 		self.rank = rank
+		self.id = id
+       self.gender=gender
 
 	def __repr__(self):
 		msg="Zawodnik: %s, nr w rankingu %s" % (self.fName + self.lName, self.rank)
