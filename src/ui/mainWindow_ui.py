@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'src/ui/mainWindow.ui'
 #
-# Created: Sun May 19 23:48:55 2013
+# Created: Mon May 20 00:04:21 2013
 #      by: PyQt4 UI code generator 4.10.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -67,6 +67,9 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addWidget(self.korty, 1, 0, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_3, 0, 5, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
+        self.buttonExit = QtGui.QPushButton(self.centralwidget)
+        self.buttonExit.setObjectName(_fromUtf8("buttonExit"))
+        self.gridLayout_2.addWidget(self.buttonExit, 1, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
@@ -81,4 +84,5 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "PushButton", None))
         self.gracze.setText(_translate("MainWindow", "Gracze", None))
         self.korty.setText(_translate("MainWindow", "Korty", None))
+        self.buttonExit.setText(_translate("MainWindow", "Wyjdź", None))
 

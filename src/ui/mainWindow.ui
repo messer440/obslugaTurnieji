@@ -96,6 +96,13 @@
       </item>
      </layout>
     </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="buttonExit">
+      <property name="text">
+       <string>Wyjdź</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

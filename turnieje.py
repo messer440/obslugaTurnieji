@@ -16,6 +16,7 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 		
 		### SIGNALS ###
 		self.gracze.connect(self.gracze, SIGNAL('clicked()'), self.openPlayers)
+		self.buttonExit.connect(self.buttonExit, SIGNAL('clicked()'), self.close)
 
 	def openPlayers(self):
 		self.otherWindow = playerGUI.PlayersGUI() 
