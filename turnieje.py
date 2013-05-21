@@ -5,17 +5,13 @@ from PyQt4.QtCore import SIGNAL, SLOT
 import sys, string, re, os
 from src.ui import mainWindow_ui
 from src import playerGUI
-try:
-	from ZODB import FileStorage, DB
-except:
-	print "Need ZODB module installed"
-	sys.exit()
+from src import myZODB
 
 class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 	def __init__(self, parent=None, name=None, fl=0):
 		super(Turnieje, self).__init__(parent)
 		self.setupUi(self)
-
+		
 		self.otherWindow = None
 		
 		### SIGNALS ###
