@@ -15,6 +15,7 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		### SIGNALS ### 
 		self.actionZakoncz.triggered.connect(self.close)
 		self.actionImportuj.triggered.connect(self.openImport)
+		self.buttonZakoncz.connect(self.buttonZakoncz, SIGNAL("clicked()"), self.close)
 
 	def openImport(self):
 		self.otherWindow = importGUI.ImportGUI()

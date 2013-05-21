@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'src/ui/windowPlayers.ui'
 #
-# Created: Tue May 21 10:46:36 2013
+# Created: Tue May 21 13:44:07 2013
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@ except AttributeError:
 class Ui_windowPlayers(object):
     def setupUi(self, windowPlayers):
         windowPlayers.setObjectName(_fromUtf8("windowPlayers"))
-        windowPlayers.resize(800, 600)
+        windowPlayers.resize(935, 553)
         self.centralwidget = QtGui.QWidget(windowPlayers)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.gridLayout_2 = QtGui.QGridLayout(self.centralwidget)
@@ -72,9 +72,16 @@ class Ui_windowPlayers(object):
         self.imie.setObjectName(_fromUtf8("imie"))
         self.gridLayout.addWidget(self.imie, 2, 0, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 1, 0, 2, 1)
+        self.frame = QtGui.QFrame(self.centralwidget)
+        self.frame.setFrameShape(QtGui.QFrame.Box)
+        self.frame.setFrameShadow(QtGui.QFrame.Raised)
+        self.frame.setLineWidth(2)
+        self.frame.setObjectName(_fromUtf8("frame"))
+        self.gridLayout_3 = QtGui.QGridLayout(self.frame)
+        self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
         self.verticalLayout = QtGui.QVBoxLayout()
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
-        self.infoAction = QtGui.QLabel(self.centralwidget)
+        self.infoAction = QtGui.QLabel(self.frame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Verdana"))
         font.setPointSize(12)
@@ -86,25 +93,29 @@ class Ui_windowPlayers(object):
         self.verticalLayout.addWidget(self.infoAction)
         spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
-        self.pushButton_8 = QtGui.QPushButton(self.centralwidget)
+        self.pushButton_8 = QtGui.QPushButton(self.frame)
         self.pushButton_8.setObjectName(_fromUtf8("pushButton_8"))
         self.verticalLayout.addWidget(self.pushButton_8)
         spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem1)
-        self.pushButton_9 = QtGui.QPushButton(self.centralwidget)
+        self.pushButton_9 = QtGui.QPushButton(self.frame)
         self.pushButton_9.setObjectName(_fromUtf8("pushButton_9"))
         self.verticalLayout.addWidget(self.pushButton_9)
         spacerItem2 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem2)
-        self.pushButton_10 = QtGui.QPushButton(self.centralwidget)
+        self.pushButton_10 = QtGui.QPushButton(self.frame)
         self.pushButton_10.setObjectName(_fromUtf8("pushButton_10"))
         self.verticalLayout.addWidget(self.pushButton_10)
         spacerItem3 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem3)
-        self.gridLayout_2.addLayout(self.verticalLayout, 2, 1, 1, 1)
+        self.gridLayout_3.addLayout(self.verticalLayout, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.frame, 1, 1, 3, 1)
+        self.buttonZakoncz = QtGui.QPushButton(self.centralwidget)
+        self.buttonZakoncz.setObjectName(_fromUtf8("buttonZakoncz"))
+        self.gridLayout_2.addWidget(self.buttonZakoncz, 4, 1, 1, 1)
         windowPlayers.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(windowPlayers)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 24))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 935, 24))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuPlik = QtGui.QMenu(self.menubar)
         self.menuPlik.setObjectName(_fromUtf8("menuPlik"))
@@ -141,6 +152,7 @@ class Ui_windowPlayers(object):
         self.pushButton_8.setText(QtGui.QApplication.translate("windowPlayers", "Dodaj", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton_9.setText(QtGui.QApplication.translate("windowPlayers", "Modyfikuj", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton_10.setText(QtGui.QApplication.translate("windowPlayers", "Usuń", None, QtGui.QApplication.UnicodeUTF8))
+        self.buttonZakoncz.setText(QtGui.QApplication.translate("windowPlayers", "Zakończ", None, QtGui.QApplication.UnicodeUTF8))
         self.menuPlik.setTitle(QtGui.QApplication.translate("windowPlayers", "Plik", None, QtGui.QApplication.UnicodeUTF8))
         self.actionImportuj.setText(QtGui.QApplication.translate("windowPlayers", "Importuj", None, QtGui.QApplication.UnicodeUTF8))
         self.actionEksportuj.setText(QtGui.QApplication.translate("windowPlayers", "Eksportuj", None, QtGui.QApplication.UnicodeUTF8))
