@@ -17,10 +17,20 @@ class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 		self.buttonWybierz.connect(self.buttonWybierz, SIGNAL("clicked()"), self.openFile)
 	
 	def openFile(self):
-		fname = QtGui.QFileDialog.getOpenFileName(self, 'Importuj plik', '/home')
+		importedPlayers = 0
+		fname = QtGui.QFileDialog.getOpenFileName(self, 'Importuj plik', '.')
 		file = open(fname, 'r')
-		for line in file.read():
-			print line, e
+		for line in file:
+			try:
+				matchPlayer = re.match(r'(.*)\s(.*)\s(M|K)\s([0-9]*)', line)
+				print matchPlayer.group(1,2,3,4)
+				importedPlayers+=1
+			except:
+				QtGui.QMessageBox.warning(self, 'Niepoprawne dane!!',\
+						str("Bledne dane\nNie zaimportowano: " + line))
+				
+		QtGui.QMessageBox.information(self, 'Zakonczono import',\
+				str("Poprawnie zaimportowano " + str(importedPlayers) + " rekordy!"))
 
 	def main(self):
 		self.show()
