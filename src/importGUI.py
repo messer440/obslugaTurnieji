@@ -4,6 +4,7 @@ from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import SIGNAL, SLOT
 import sys, string, re
 from src.ui import dialogImport_ui
+import playerGUI
 
 
 class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
@@ -18,6 +19,8 @@ class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 	def openFile(self):
 		fname = QtGui.QFileDialog.getOpenFileName(self, 'Importuj plik', '/home')
 		file = open(fname, 'r')
+		for line in file.read():
+			print line, e
 
 	def main(self):
 		self.show()

@@ -13,6 +13,10 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 		self.setupUi(self)
 		
 		self.otherWindow = None
+
+		### Connect to zodb databases ###
+		players = myZODB.MyZODB('src/db/players.fs')
+		tournaments = myZODB.MyZODB('src/db/tournaments.fs')
 		
 		### SIGNALS ###
 		self.gracze.connect(self.gracze, SIGNAL('clicked()'), self.openPlayers)
@@ -21,6 +25,10 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 	def openPlayers(self):
 		self.otherWindow = playerGUI.PlayersGUI() 
 		self.otherWindow.show()
+	
+	def closeEvent(self, event):
+		if (self.otherWindow != None):
+			self.otherWindow.close()
 
 	def main(self):
 		self.show()
