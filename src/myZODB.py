@@ -7,7 +7,6 @@ except:
 	print "Need ZODB and transaction modules!"
 	sys.exit()
 
-
 class MyZODB(object):
 	def __init__(self, path):
 		self.storage = FileStorage.FileStorage(path)
