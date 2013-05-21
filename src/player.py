@@ -8,7 +8,7 @@ class Player(Persistent):
 		self.lName = data[1]
 		self.gender = data[2]
 		self.rank = data[3]
-		self.uid = md5.new(self.fName + self.rank + self.lName + self.gender)
+		self.uid = md5.new(self.fName + self.rank + self.lName + self.gender).hexdigest()
 
 	def __repr__(self):
 		msg="Zawodnik: %s, nr w rankingu %s" % (self.fName + " " + self.lName, self.rank)
