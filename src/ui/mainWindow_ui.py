@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'src/ui/mainWindow.ui'
 #
-# Created: Mon May 20 00:04:21 2013
-#      by: PyQt4 UI code generator 4.10.1
+# Created: Tue May 21 10:32:40 2013
+#      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,16 +12,7 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    def _fromUtf8(s):
-        return s
-
-try:
-    _encoding = QtGui.QApplication.UnicodeUTF8
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
-except AttributeError:
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
+    _fromUtf8 = lambda s: s
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -80,9 +71,9 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(_translate("MainWindow", "Obsługa Turnieji", None))
-        self.pushButton.setText(_translate("MainWindow", "PushButton", None))
-        self.gracze.setText(_translate("MainWindow", "Gracze", None))
-        self.korty.setText(_translate("MainWindow", "Korty", None))
-        self.buttonExit.setText(_translate("MainWindow", "Wyjdź", None))
+        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Obsługa Turnieji", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton.setText(QtGui.QApplication.translate("MainWindow", "PushButton", None, QtGui.QApplication.UnicodeUTF8))
+        self.gracze.setText(QtGui.QApplication.translate("MainWindow", "Gracze", None, QtGui.QApplication.UnicodeUTF8))
+        self.korty.setText(QtGui.QApplication.translate("MainWindow", "Korty", None, QtGui.QApplication.UnicodeUTF8))
+        self.buttonExit.setText(QtGui.QApplication.translate("MainWindow", "Wyjdź", None, QtGui.QApplication.UnicodeUTF8))
 
