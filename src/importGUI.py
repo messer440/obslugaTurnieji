@@ -22,7 +22,6 @@ class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 		file = open(fname, 'r')
 		self.playersDB = myZODB.MyZODB('db/players.fs')
 		self.players = self.playersDB.dbroot
-
 		for line in file:
 			try:
 				matchPlayer = re.match(r'(.*)\s(.*)\s(M|K)\s([0-9]*)', line)
