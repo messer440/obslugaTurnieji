@@ -5,7 +5,7 @@ from PyQt4.QtCore import SIGNAL, SLOT
 import sys, string, re
 from src.ui import dialogImport_ui
 import playerGUI
-
+import player
 
 class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 	def __init__(self, parent=None, name=None, fl=0):
@@ -23,7 +23,7 @@ class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 		for line in file:
 			try:
 				matchPlayer = re.match(r'(.*)\s(.*)\s(M|K)\s([0-9]*)', line)
-				print matchPlayer.group(1,2,3,4)
+				newPlayer = player.Player(matchPlayer.group(1,2,3,4))
 				importedPlayers+=1
 			except:
 				QtGui.QMessageBox.warning(self, 'Niepoprawne dane!!',\

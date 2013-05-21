@@ -34,8 +34,8 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 		self.otherWindow.show()
 	
 	def closeEvent(self, event):
-		self.players.close()
-		self.tournaments.close()
+		self.playersDB.close()
+		self.tournamentsDB.close()
 		if (self.otherWindow != None):
 			self.otherWindow.close()
 

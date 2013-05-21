@@ -1,13 +1,15 @@
 #!/usr/bin/python2.7
+from persistent import Persistent
+import md5
 
-class Player:
-	def __init__(self, fName, lName, rank):
-		self.fName = fName
-		self.lName = lName
-		self.rank = rank
-		self.id = id
-       self.gender=gender
+class Player(Persistent):
+	def __init__(self, data):
+		self.fName = data[0]
+		self.lName = data[1]
+		self.gender = data[2]
+		self.rank = data[3]
+		self.uid = md5.new(self.fName + self.rank + self.lName + self.gender)
 
 	def __repr__(self):
-		msg="Zawodnik: %s, nr w rankingu %s" % (self.fName + self.lName, self.rank)
+		msg="Zawodnik: %s, nr w rankingu %s" % (self.fName + " " + self.lName, self.rank)
 		return msg
