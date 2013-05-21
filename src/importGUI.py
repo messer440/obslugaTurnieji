@@ -20,13 +20,13 @@ class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 		importedPlayers = 0
 		fname = QtGui.QFileDialog.getOpenFileName(self, 'Importuj plik', '.')
 		file = open(fname, 'r')
-		self.playersDB = myZODB.MyZODB('db/players.fs')
-		self.players = self.playersDB.dbroot
+#		self.playersDB = myZODB.MyZODB('db/players.fs')
+#		self.players = self.playersDB.dbroot
 		for line in file:
 			try:
 				matchPlayer = re.match(r'(.*)\s(.*)\s(M|K)\s([0-9]*)', line)
 				newPlayer = player.Player(matchPlayer.group(1,2,3,4))
-				self.players[str(newPlayer.uid)] = newPlayer
+				players[str(newPlayer.uid)] = newPlayer
 				importedPlayers+=1
 			except:
 				QtGui.QMessageBox.warning(self, 'Niepoprawne dane!!',\

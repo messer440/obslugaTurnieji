@@ -7,6 +7,9 @@ from src.ui import mainWindow_ui
 from src import playerGUI
 from src import myZODB
 
+global playersDB, players
+global tournamentsDB, tournaments
+
 class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 	def __init__(self, parent=None, name=None, fl=0):
 		super(Turnieje, self).__init__(parent)
@@ -16,10 +19,10 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 
 		### Connect to zodb databases ###
 		try:
-			self.playersDB = myZODB.MyZODB('src/db/players.fs')
-			self.players = self.playersDB.dbroot
-			self.tournamentsDB = myZODB.MyZODB('src/db/tournaments.fs')
-			self.tournaments = self.tournamentsDB.dbroot
+			playersDB = myZODB.MyZODB('src/db/players.fs')
+			players = self.playersDB.dbroot
+			tournamentsDB = myZODB.MyZODB('src/db/tournaments.fs')
+			tournaments = self.tournamentsDB.dbroot
 			self.statusbar.showMessage("Wczytano poprawnie bazy danych")
 		except:
 			self.statusbar.showMessage("Blad bazy danych")
@@ -34,8 +37,13 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 		self.otherWindow.show()
 	
 	def closeEvent(self, event):
-		self.playersDB.close()
-		self.tournamentsDB.close()
+		try:
+			self.playersDB.close()
+			self.tournamentsDB.close()
+		except:
+			print "error"
+			self.statusbar.showMessage("Nie mozna zamknac baz danych!")
+
 		if (self.otherWindow != None):
 			self.otherWindow.close()
 
