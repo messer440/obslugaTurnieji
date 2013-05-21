@@ -24,10 +24,3 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 	def closeEvent(self, event):
 		if (self.otherWindow != None):
 			self.otherWindow.close()
-
-	def main(self):
-		self.show()
-
-	def exit(self):
-		sys.exit()
-

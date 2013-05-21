@@ -1,4 +1,5 @@
 #!/usr/bin/python2.7
+from PyQt4 import QtCore, QtGui
 
 try:
 	from ZODB import FileStorage, DB
@@ -9,10 +10,14 @@ except:
 
 class MyZODB(object):
 	def __init__(self, path):
-		self.storage = FileStorage.FileStorage(path)
-		self.db = DB(self.storage)
-		self.connection = self.db.open()
-		self.dbroot = self.connection.root()
+		try:
+			self.storage = FileStorage.FileStorage(path)
+			self.db = DB(self.storage)
+			self.connection = self.db.open()
+			self.dbroot = self.connection.root()
+		except:
+			QtGui.QMessageBox.warning(self, 'Error bazy danych!',\
+					'Nie mozna otworzyc bazy danych!')
 
 	def close(self):
 		self.connection.close()

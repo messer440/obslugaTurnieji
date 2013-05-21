@@ -31,10 +31,3 @@ class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 				
 		QtGui.QMessageBox.information(self, 'Zakonczono import',\
 				str("Poprawnie zaimportowano " + str(importedPlayers) + " rekordy!"))
-
-	def main(self):
-		self.show()
-
-	def exit(self):
-		sys.exit()
-
