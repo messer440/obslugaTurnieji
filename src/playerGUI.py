@@ -31,6 +31,7 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		self.playersDB = myZODB.MyZODB('src/db/players.fs')
 		self.players = self.playersDB.dbroot
 		self.count = len(self.players.keys())
+		self.liczbaGraczyVal.setText(str(self.count))
 		if ((self.count != 0) and (self.count > self.playerIdx)):
 			self.keys = self.players.keys()
 			uid = self.keys[self.playerIdx]
@@ -77,7 +78,7 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		except:
 			QtGui.QMessageBox.warning(self, 'Error bazy danych!',\
 					'Nie mozna otworzyc bazy zawodnikow!')
-		self.initForm(self.playerIdx)#}}}#}}}
+		self.initForm(self.playerIdx)#}}}
 
 	def addPlayer(self):#{{{
 		matchfName = re.match(r'^([a-zA-Z]*)$', str(self.inputImie.toPlainText()))
@@ -106,11 +107,14 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 			
 			transaction.commit()
 			self.playersDB.close()
+			self.initForm(self.playerIdx)
 			return True
+
 		except:
 			QtGui.QMessageBox.warning(self, 'Niepoprawne dane!',\
 						'Niepoprawny format wprowadzonych danych!')
-			return False#}}}
+			return False
+		#}}}
 	
 	def nextPlayer(self):#{{{
 		if (self.playerIdx < self.count-1):

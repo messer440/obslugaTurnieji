@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>935</width>
-    <height>587</height>
+    <height>644</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,12 +15,31 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
+    <item row="6" column="1">
+     <widget class="QPushButton" name="buttonZakoncz">
+      <property name="text">
+       <string>Zakończ</string>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="0" colspan="2">
      <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetMaximumSize</enum>
+      </property>
       <item>
        <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <family>Droid Sans Mono</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Szukaj</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -43,81 +62,143 @@
       </item>
      </layout>
     </item>
-    <item row="1" column="0" rowspan="2">
+    <item row="3" column="0" rowspan="2">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="4" column="2">
+      <item row="3" column="2">
        <widget class="QTextBrowser" name="inputPlec">
         <property name="readOnly">
          <bool>false</bool>
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
+      <item row="3" column="0">
        <widget class="QLabel" name="plec">
         <property name="text">
          <string>Płeć</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
        </widget>
       </item>
-      <item row="2" column="2">
+      <item row="1" column="2">
        <widget class="QTextBrowser" name="inputImie">
         <property name="readOnly">
          <bool>false</bool>
         </property>
        </widget>
       </item>
-      <item row="6" column="2">
+      <item row="5" column="2">
        <widget class="QPushButton" name="buttonNext">
         <property name="text">
          <string>Następny</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="2">
+      <item row="2" column="2">
        <widget class="QTextBrowser" name="inputNazw">
         <property name="readOnly">
          <bool>false</bool>
         </property>
        </widget>
       </item>
-      <item row="5" column="0">
+      <item row="4" column="0">
        <widget class="QLabel" name="rank">
         <property name="text">
          <string>Nr w rankingu</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
        </widget>
       </item>
-      <item row="5" column="2">
+      <item row="4" column="2">
        <widget class="QTextBrowser" name="inputRank">
         <property name="readOnly">
          <bool>false</bool>
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
+      <item row="2" column="0">
        <widget class="QLabel" name="nazwisko">
         <property name="text">
          <string>Nazwisko</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
        </widget>
       </item>
-      <item row="6" column="0">
+      <item row="5" column="0">
        <widget class="QPushButton" name="buttonPrev">
         <property name="text">
          <string>Poprzedni</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
+      <item row="1" column="0">
        <widget class="QLabel" name="imie">
         <property name="text">
          <string>Imię</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QFrame" name="frame_2">
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLabel" name="liczbaGraczy">
+             <property name="font">
+              <font>
+               <family>Zero Threes</family>
+               <pointsize>12</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Liczba graczy</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="liczbaGraczyVal">
+             <property name="font">
+              <font>
+               <family>Zero Threes</family>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </widget>
       </item>
      </layout>
     </item>
-    <item row="1" column="1" rowspan="3">
+    <item row="3" column="1" rowspan="3">
      <widget class="QFrame" name="frame">
       <property name="frameShape">
        <enum>QFrame::Box</enum>
@@ -227,10 +308,10 @@
       </layout>
      </widget>
     </item>
-    <item row="4" column="1">
-     <widget class="QPushButton" name="buttonZakoncz">
-      <property name="text">
-       <string>Zakończ</string>
+    <item row="1" column="0" rowspan="2">
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
       </property>
      </widget>
     </item>
@@ -242,7 +323,7 @@
      <x>0</x>
      <y>0</y>
      <width>935</width>
-     <height>24</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlik">
