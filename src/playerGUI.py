@@ -30,7 +30,6 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		if ((self.count != 0) and (self.count > self.playerIdx)):
 			self.keys = self.players.keys()
 			uid = self.keys[self.playerIdx]
-			print uid
 			self.inputImie.setText(self.players[uid].fName)
 			self.inputNazw.setText(self.players[uid].lName)
 			self.inputPlec.setText(self.players[uid].gender)
@@ -38,19 +37,17 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		self.playersDB.close()
 
 	def nextPlayer(self):
-		print self.count, self.playerIdx
-		if (self.playerIdx < self.count):
+		if (self.playerIdx < self.count-1):
 			self.playerIdx += 1
 		elif (self.count != 0):
 			self.playerIdx = 0
 		self.initForm(self.playerIdx)
 
 	def prevPlayer(self):
-		print self.count, self.playerIdx
 		if (self.playerIdx > 0):
 			self.playerIdx -= 1
 		elif (self.count != 0):
-			self.playerIdx = self.count
+			self.playerIdx = self.count - 1
 		self.initForm(self.playerIdx)
 
 	def openImport(self):
