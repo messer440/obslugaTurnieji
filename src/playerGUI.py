@@ -60,7 +60,7 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 					'Nie mozna otworzyc bazy zawodnikow!')
 		self.initForm(self.playerIdx)#}}}
 
-	def modifPlayer(self):
+	def modifPlayer(self):#{{{
 		try:
 			exitVal = self.addPlayer()
 			if (exitVal == False):
@@ -77,7 +77,7 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		except:
 			QtGui.QMessageBox.warning(self, 'Error bazy danych!',\
 					'Nie mozna otworzyc bazy zawodnikow!')
-		self.initForm(self.playerIdx)#}}}
+		self.initForm(self.playerIdx)#}}}#}}}
 
 	def addPlayer(self):#{{{
 		matchfName = re.match(r'^([a-zA-Z]*)$', str(self.inputImie.toPlainText()))
@@ -109,9 +109,9 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 			return True
 		except:
 			QtGui.QMessageBox.warning(self, 'Niepoprawne dane!',\
-						'Niepoprawny format wprowadzonych danych!')#}}}
-			return False
-		
+						'Niepoprawny format wprowadzonych danych!')
+			return False#}}}
+	
 	def nextPlayer(self):#{{{
 		if (self.playerIdx < self.count-1):
 			self.playerIdx += 1
