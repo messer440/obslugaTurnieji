@@ -16,8 +16,9 @@ class MyZODB(object):
 			self.connection = self.db.open()
 			self.dbroot = self.connection.root()
 		except:
-			QtGui.QMessageBox.warning(self, 'Error bazy danych!',\
-					'Nie mozna otworzyc bazy danych!')
+			print "Error database init!"
+#			QtGui.QMessageBox.warning(None, 'Error bazy danych!',\
+#					'Nie mozna otworzyc bazy danych!')
 
 	def close(self):
 		self.connection.close()

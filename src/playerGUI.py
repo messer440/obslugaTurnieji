@@ -49,11 +49,11 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 			uid = self.keys[self.playerIdx]
 			if (self.count > 1):
 				del self.players[uid]
-				print "Usunalem"
+				self.count = len(self.players.keys())
+				transaction.commit()
 			else:
 				QtGui.QMessageBox.information(self, 'Uwaga!',\
 					'Ostatni zawodnik w bazie danych, dokonaj modyfikacji pol!')
-			transaction.commit()
 			self.playersDB.close()
 		except:
 			QtGui.QMessageBox.warning(self, 'Error bazy danych!',\
@@ -62,12 +62,10 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 
 	def modifPlayer(self):
 		try:
-			try:
-				self.addPlayer()
-			except:
-				print "Can't add user"
+			exitVal = self.addPlayer()
+			if (exitVal == False):
 				return
-
+			
 			self.playersDB = myZODB.MyZODB('src/db/players.fs')
 			self.players = self.playersDB.dbroot
 			self.count = len(self.players.keys())
@@ -108,9 +106,11 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 			
 			transaction.commit()
 			self.playersDB.close()
+			return True
 		except:
 			QtGui.QMessageBox.warning(self, 'Niepoprawne dane!',\
 						'Niepoprawny format wprowadzonych danych!')#}}}
+			return False
 		
 	def nextPlayer(self):#{{{
 		if (self.playerIdx < self.count-1):
