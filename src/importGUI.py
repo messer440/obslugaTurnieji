@@ -18,6 +18,7 @@ class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 	
 	def openFile(self):
 		importedPlayers = 0
+		omittedPlayers = 0
 		fname = QtGui.QFileDialog.getOpenFileName(self, 'Importuj plik', '.')
 		file = open(fname, 'r')
 		try:
@@ -30,8 +31,11 @@ class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 			try:
 				matchPlayer = re.match(r'(.*)\s(.*)\s(M|K)\s([0-9]*)', line)
 				newPlayer = player.Player(matchPlayer.group(1,2,3,4))
-				self.players[newPlayer.uid] = newPlayer
-				importedPlayers+=1
+				if newPlayer.uid not in self.players:
+					self.players[newPlayer.uid] = newPlayer
+					importedPlayers+=1
+				else:
+					omittedPlayers+=1
 			except:
 				QtGui.QMessageBox.warning(self, 'Niepoprawne dane!!',\
 						str("Bledne dane\nNie zaimportowano: " + line))
@@ -39,4 +43,5 @@ class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 		self.playersDB.close()
 				
 		QtGui.QMessageBox.information(self, 'Zakonczono import',\
-				str("Poprawnie zaimportowano " + str(importedPlayers) + " rekordy!"))
+				str("Poprawnie zaimportowano:\t" + str(importedPlayers) + "\n" + \
+				"Powtorzone dane (ominieto):\t" + str(omittedPlayers)))
