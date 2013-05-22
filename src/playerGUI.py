@@ -23,6 +23,7 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		self.buttonZakoncz.connect(self.buttonZakoncz, SIGNAL("clicked()"), self.close)
 		self.buttonNext.connect(self.buttonNext, SIGNAL("clicked()"), self.nextPlayer)
 		self.buttonPrev.connect(self.buttonPrev, SIGNAL("clicked()"), self.prevPlayer)
+		self.buttonDelete.connect(self.buttonDelete, SIGNAL("clicked()"), self.delPlayer)
 		self.buttonAdd.connect(self.buttonAdd, SIGNAL("clicked()"), self.addPlayer)#}}}
 
 	def initForm(self, playerIdx):#{{{
@@ -38,7 +39,27 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 			self.inputRank.setText(self.players[uid].rank)
 		self.playersDB.close()#}}}
 
-	def addPlayer(self):
+	def delPlayer(self):
+		try:
+			self.playersDB = myZODB.MyZODB('src/db/players.fs')
+			self.players = self.playersDB.dbroot
+			self.count = len(self.players.keys())
+			self.keys = self.players.keys()
+			uid = self.keys[self.playerIdx]
+			if (self.count > 1):
+				del self.players[uid]
+			else:
+				QtGui.QMessageBox.information(self, 'Uwaga!',\
+					'Ostatni zawodnik w bazie danych, dokonaj modyfikacji pol!')
+			transaction.commit()
+			self.playersDB.close()
+		except:
+			QtGui.QMessageBox.warning(self, 'Error bazy danych!',\
+					'Nie mozna otworzyc bazy zawodnikow!')
+		self.initForm(self.playerIdx)
+
+
+	def addPlayer(self):#{{{
 		matchfName = re.match(r'^([a-zA-Z]*)$', str(self.inputImie.toPlainText()))
 		matchlName = re.match(r'^([a-zA-Z]*)$', str(self.inputNazw.toPlainText()))
 		matchGender = re.match(r'(M|K){1}$', str(self.inputPlec.toPlainText()))
@@ -67,9 +88,7 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 			self.playersDB.close()
 		except:
 			QtGui.QMessageBox.warning(self, 'Niepoprawne dane!',\
-						'Niepoprawny format wprowadzonych danych!')
-
-
+						'Niepoprawny format wprowadzonych danych!')#}}}
 		
 	def nextPlayer(self):#{{{
 		if (self.playerIdx < self.count-1):
