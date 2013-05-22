@@ -20,17 +20,38 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		self.actionZakoncz.triggered.connect(self.close)
 		self.actionImportuj.triggered.connect(self.openImport)
 		self.buttonZakoncz.connect(self.buttonZakoncz, SIGNAL("clicked()"), self.close)
+		self.buttonNext.connect(self.buttonNext, SIGNAL("clicked()"), self.nextPlayer)
+		self.buttonPrev.connect(self.buttonPrev, SIGNAL("clicked()"), self.prevPlayer)
 
 	def initForm(self, playerIdx):
 		self.playersDB = myZODB.MyZODB('src/db/players.fs')
 		self.players = self.playersDB.dbroot
-		if ((len(self.players.keys()) != 0) and (len(self.players.keys()) >= playerIdx)):
-			keys = self.players.keys()
-			uid = keys[playerIdx]
+		self.count = len(self.players.keys())
+		if ((self.count != 0) and (self.count > self.playerIdx)):
+			self.keys = self.players.keys()
+			uid = self.keys[self.playerIdx]
+			print uid
 			self.inputImie.setText(self.players[uid].fName)
 			self.inputNazw.setText(self.players[uid].lName)
 			self.inputPlec.setText(self.players[uid].gender)
 			self.inputRank.setText(self.players[uid].rank)
+		self.playersDB.close()
+
+	def nextPlayer(self):
+		print self.count, self.playerIdx
+		if (self.playerIdx < self.count):
+			self.playerIdx += 1
+		elif (self.count != 0):
+			self.playerIdx = 0
+		self.initForm(self.playerIdx)
+
+	def prevPlayer(self):
+		print self.count, self.playerIdx
+		if (self.playerIdx > 0):
+			self.playerIdx -= 1
+		elif (self.count != 0):
+			self.playerIdx = self.count
+		self.initForm(self.playerIdx)
 
 	def openImport(self):
 		self.otherWindow = importGUI.ImportGUI()

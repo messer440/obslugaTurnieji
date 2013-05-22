@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>935</width>
-    <height>553</height>
+    <height>587</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,7 +25,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QTextEdit" name="textEdit">
+       <widget class="QTextEdit" name="inputSearch">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -35,7 +35,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="QPushButton" name="buttonSearch">
         <property name="text">
          <string>Znajdź</string>
         </property>
@@ -46,7 +46,11 @@
     <item row="1" column="0" rowspan="2">
      <layout class="QGridLayout" name="gridLayout">
       <item row="4" column="2">
-       <widget class="QTextBrowser" name="inputPlec"/>
+       <widget class="QTextBrowser" name="inputPlec">
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
       </item>
       <item row="4" column="0">
        <widget class="QLabel" name="plec">
@@ -56,17 +60,25 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QTextBrowser" name="inputImie"/>
+       <widget class="QTextBrowser" name="inputImie">
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
       </item>
       <item row="6" column="2">
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="QPushButton" name="buttonNext">
         <property name="text">
          <string>Następny</string>
         </property>
        </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QTextBrowser" name="inputNazw"/>
+       <widget class="QTextBrowser" name="inputNazw">
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
       </item>
       <item row="5" column="0">
        <widget class="QLabel" name="rank">
@@ -76,7 +88,11 @@
        </widget>
       </item>
       <item row="5" column="2">
-       <widget class="QTextBrowser" name="inputRank"/>
+       <widget class="QTextBrowser" name="inputRank">
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="nazwisko">
@@ -86,7 +102,7 @@
        </widget>
       </item>
       <item row="6" column="0">
-       <widget class="QPushButton" name="pushButton_7">
+       <widget class="QPushButton" name="buttonPrev">
         <property name="text">
          <string>Poprzedni</string>
         </property>
@@ -147,7 +163,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_8">
+          <widget class="QPushButton" name="buttonAdd">
            <property name="text">
             <string>Dodaj</string>
            </property>
@@ -167,7 +183,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_9">
+          <widget class="QPushButton" name="buttonModif">
            <property name="text">
             <string>Modyfikuj</string>
            </property>
@@ -187,7 +203,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_10">
+          <widget class="QPushButton" name="buttonDelete">
            <property name="text">
             <string>Usuń</string>
            </property>
