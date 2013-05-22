@@ -4,8 +4,8 @@ from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import SIGNAL, SLOT
 import sys, string, re, os
 from src.ui import mainWindow_ui
-from src import playerGUI
-from src import myZODB
+import playerGUI
+import myZODB
 
 class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 	def __init__(self, parent=None, name=None, fl=0):
@@ -44,10 +44,3 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 
 	def exit(self):
 		sys.exit()
-
-
-if __name__ == "__main__":
-	app = QtGui.QApplication(sys.argv)
-	turnieje = Turnieje()
-	turnieje.main()
-	app.exec_()
