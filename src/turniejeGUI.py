@@ -15,14 +15,14 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 		self.otherWindow = None
 
 		### Connect to zodb databases ###
-		try:
-			self.playersDB = myZODB.MyZODB('src/db/players.fs')
-			self.players = self.playersDB.dbroot
-			self.tournamentsDB = myZODB.MyZODB('src/db/tournaments.fs')
-			self.tournaments = self.tournamentsDB.dbroot
-			self.statusbar.showMessage("Wczytano poprawnie bazy danych")
-		except:
-			self.statusbar.showMessage("Blad bazy danych")
+#		try:
+#			self.playersDB = myZODB.MyZODB('src/db/players.fs')
+#			self.players = self.playersDB.dbroot
+#			self.tournamentsDB = myZODB.MyZODB('src/db/tournaments.fs')
+#			self.tournaments = self.tournamentsDB.dbroot
+#			self.statusbar.showMessage("Wczytano poprawnie bazy danych")
+#		except:
+#			self.statusbar.showMessage("Blad bazy danych")
 		
 		### SIGNALS ###
 		self.gracze.connect(self.gracze, SIGNAL('clicked()'), self.openPlayers)
@@ -34,8 +34,6 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 		self.otherWindow.show()
 	
 	def closeEvent(self, event):
-		self.playersDB.close()
-		self.tournamentsDB.close()
 		if (self.otherWindow != None):
 			self.otherWindow.close()
 
