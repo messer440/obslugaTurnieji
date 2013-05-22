@@ -12,11 +12,11 @@ class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 		super(ImportGUI, self).__init__(parent)
 		self.setupUi(self)
 		
-		### SIGNALS ### 
+		### SIGNALS ### #{{{
 		self.buttonAnuluj.connect(self.buttonAnuluj, SIGNAL("clicked()"), self.close)
-		self.buttonWybierz.connect(self.buttonWybierz, SIGNAL("clicked()"), self.openFile)
+		self.buttonWybierz.connect(self.buttonWybierz, SIGNAL("clicked()"), self.openFile)#}}}
 	
-	def openFile(self):
+	def openFile(self):#{{{
 		importedPlayers = 0
 		omittedPlayers = 0
 		fname = QtGui.QFileDialog.getOpenFileName(self, 'Importuj plik', '.')
@@ -44,5 +44,4 @@ class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 		QtGui.QMessageBox.information(self, 'Zakonczono import',\
 				str("Poprawnie zaimportowano:\t" + str(importedPlayers) + "\n" + \
 				"Powtorzone dane (ominieto):\t" + str(omittedPlayers)))
-
-		self.close()
+		self.close()#}}}
