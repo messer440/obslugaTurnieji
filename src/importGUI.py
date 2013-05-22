@@ -41,7 +41,8 @@ class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 						str("Bledne dane\nNie zaimportowano: " + line))
 		transaction.commit()
 		self.playersDB.close()
-				
 		QtGui.QMessageBox.information(self, 'Zakonczono import',\
 				str("Poprawnie zaimportowano:\t" + str(importedPlayers) + "\n" + \
 				"Powtorzone dane (ominieto):\t" + str(omittedPlayers)))
+
+		self.close()
