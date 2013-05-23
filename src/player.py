@@ -1,6 +1,10 @@
 #!/usr/bin/python2.7
-from persistent import Persistent
-import md5
+try:
+	from persistent import Persistent
+	import md5
+except:
+	QtGui.QMessageBox.warning(self, 'Brak modulow',\
+			'Potrzeba modulu zodb do poprawnego dzialani!')
 
 class Player(Persistent):
 	def __init__(self, data):

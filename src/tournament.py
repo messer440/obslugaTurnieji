@@ -8,12 +8,12 @@ except:
 			'Do dzialania potrzebny jest modul ZODB do pythona')
 import myZODB
 
-class Tournament(object):
+class Tournament(Persistent):
 	def __init__(self, lName, uid):
 		try:
 			self.name = lName
 			self.uid = uid
-			self.playersDB = myZODB.MyZODB('src/db/' + str(uid) + '.fs')
+			self.playersDB = myZODB.MyZODB('src/db/players/' + str(uid) + '.fs')
 			self.players = self.playersDB.root
 			self.matches = []
 			self.courts = []

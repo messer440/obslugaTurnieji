@@ -2,7 +2,7 @@
 
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import SIGNAL, SLOT
-import sys, string, re
+import sys, string, re, os
 from src.ui import windowTournaments_ui
 import importGUI, playerGUI
 import player
@@ -21,7 +21,19 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 		### SIGNALS ####{{{
 		self.buttonAnuluj.connect(self.buttonAnuluj, SIGNAL("clicked()"), self.close)
 		self.buttonImport.connect(self.buttonImport, SIGNAL("clicked()"), self.openImportPlayer)
+		self.inputSkrotNazwy.connect(self.inputSkrotNazwy, SIGNAL("textChanged()"), self.checkUID)
 		self.buttonWybierzZaw.connect(self.buttonWybierzZaw, SIGNAL("clicked()"), self.openWindowPlayer)#}}}
+	
+	def checkUID(self):
+		self.getExisted()
+		for self.ui
+
+
+	def getExisted(self):#{{{
+		self.tournamentsDB = myZODB.myZODB('src/db/tournaments.fs')
+		self.tournaments = self.tournamentsDB.dbroot()
+		self.existing = self.tournaments.keys()
+		self.playersDB.close()#}}}
 
 	def openWindowPlayer(self):#{{{
 		if (self.tournamentId()):
@@ -37,7 +49,7 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 		if (self.inputSkrotNazwy.toPlainText() != '') and (self.inputNazwa.toPlainText() != ''):
 			self.uid = self.inputSkrotNazwy.toPlainText()
 			self.name = self.inputNazwa.toPlainText()
-			return True
+			return self.checkUID()
 		else:
 			QtGui.QMessageBox.information(self, 'Brakuje informacji',\
 						str("Prosze podac nazwe turnieju oraz skrocona wersje"))
