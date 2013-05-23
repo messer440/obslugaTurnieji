@@ -84,7 +84,7 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 	def addPlayer(self):#{{{
 		matchfName = re.match(r'^([a-zA-Z]*)$', str(self.inputImie.toPlainText()))
 		matchlName = re.match(r'^([a-zA-Z]*)$', str(self.inputNazw.toPlainText()))
-		matchAge = re.match(r'^([0-9]*)$', str(self.inputWiek.toPlainText()))
+		matchAge = re.match(r'^([0-9]{1,2})$', str(self.inputWiek.toPlainText()))
 		matchGender = re.match(r'(M|K){1}$', str(self.inputPlec.toPlainText()))
 		matchRank = re.match(r'^([0-9]*)$', str(self.inputRank.toPlainText()))
 		

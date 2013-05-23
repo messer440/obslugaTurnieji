@@ -14,18 +14,8 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 		
 		self.otherWindow = None
 
-		### Connect to zodb databases ###
-#		try:
-#			self.playersDB = myZODB.MyZODB('src/db/players.fs')
-#			self.players = self.playersDB.dbroot
-#			self.tournamentsDB = myZODB.MyZODB('src/db/tournaments.fs')
-#			self.tournaments = self.tournamentsDB.dbroot
-#			self.statusbar.showMessage("Wczytano poprawnie bazy danych")
-#		except:
-#			self.statusbar.showMessage("Blad bazy danych")
-		
 		### SIGNALS ###
-		self.gracze.connect(self.gracze, SIGNAL('clicked()'), self.openPlayers)
+#		self.gracze.connect(self.gracze, SIGNAL('clicked()'), self.openPlayers)
 		self.dodajTurniej.connect(self.dodajTurniej, SIGNAL('clicked()'), self.openTournaments)
 		self.buttonExit.connect(self.buttonExit, SIGNAL('clicked()'), self.close)
 
@@ -34,10 +24,10 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 		self.otherWindow = dodajTurniejGUI.DodajTurniejGUI() 
 		self.otherWindow.show()
 
-	def openPlayers(self):
-		self.statusbar.showMessage("Edycja graczy")
-		self.otherWindow = playerGUI.PlayersGUI() 
-		self.otherWindow.show()
+#	def openPlayers(self):
+#		self.statusbar.showMessage("Edycja graczy")
+#		self.otherWindow = playerGUI.PlayersGUI() 
+#		self.otherWindow.show()
 	
 	def closeEvent(self, event):
 		if (self.otherWindow != None):
