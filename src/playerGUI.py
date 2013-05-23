@@ -37,6 +37,7 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 			uid = self.keys[self.playerIdx]
 			self.inputImie.setText(self.players[uid].fName)
 			self.inputNazw.setText(self.players[uid].lName)
+			self.inputWiek.setText(self.players[uid].age)
 			self.inputPlec.setText(self.players[uid].gender)
 			self.inputRank.setText(self.players[uid].rank)
 		self.playersDB.close()#}}}
@@ -83,11 +84,12 @@ class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 	def addPlayer(self):#{{{
 		matchfName = re.match(r'^([a-zA-Z]*)$', str(self.inputImie.toPlainText()))
 		matchlName = re.match(r'^([a-zA-Z]*)$', str(self.inputNazw.toPlainText()))
+		matchAge = re.match(r'^([0-9]*)$', str(self.inputWiek.toPlainText()))
 		matchGender = re.match(r'(M|K){1}$', str(self.inputPlec.toPlainText()))
 		matchRank = re.match(r'^([0-9]*)$', str(self.inputRank.toPlainText()))
 		
 		try:
-			self.params = (matchfName.group(1), matchlName.group(1), matchGender.group(1), matchRank.group(1))
+			self.params = (matchfName.group(1), matchlName.group(1), matchAge.group(1), matchGender.group(1), matchRank.group(1))
 
 			self.newPlayer = player.Player(self.params)
 			try:

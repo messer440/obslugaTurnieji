@@ -29,8 +29,8 @@ class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 					'Nie mozna otworzyc bazy zawodnikow!')
 		for line in file:
 			try:
-				matchPlayer = re.match(r'(.*)\s(.*)\s(M|K)\s([0-9]*)', line)
-				newPlayer = player.Player(matchPlayer.group(1,2,3,4))
+				matchPlayer = re.match(r'(.*)\s(.*)\s([0-9]{1,2})\s(M|K)\s([0-9]*)', line)
+				newPlayer = player.Player(matchPlayer.group(1,2,3,4,5))
 				if newPlayer.uid not in self.players:
 					self.players[newPlayer.uid] = newPlayer
 					importedPlayers+=1

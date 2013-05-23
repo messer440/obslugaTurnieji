@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>935</width>
-    <height>644</height>
+    <height>650</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -64,14 +64,14 @@
     </item>
     <item row="3" column="0" rowspan="2">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="3" column="2">
+      <item row="4" column="2">
        <widget class="QTextBrowser" name="inputPlec">
         <property name="readOnly">
          <bool>false</bool>
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
+      <item row="4" column="0">
        <widget class="QLabel" name="plec">
         <property name="text">
          <string>Płeć</string>
@@ -88,7 +88,7 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="2">
+      <item row="6" column="2">
        <widget class="QPushButton" name="buttonNext">
         <property name="text">
          <string>Następny</string>
@@ -102,7 +102,7 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
+      <item row="5" column="0">
        <widget class="QLabel" name="rank">
         <property name="text">
          <string>Nr w rankingu</string>
@@ -112,7 +112,7 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="2">
+      <item row="5" column="2">
        <widget class="QTextBrowser" name="inputRank">
         <property name="readOnly">
          <bool>false</bool>
@@ -129,7 +129,7 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="0">
+      <item row="6" column="0">
        <widget class="QPushButton" name="buttonPrev">
         <property name="text">
          <string>Poprzedni</string>
@@ -194,6 +194,23 @@
           </layout>
          </item>
         </layout>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="wiek">
+        <property name="text">
+         <string>Wiek</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QTextBrowser" name="inputWiek">
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
        </widget>
       </item>
      </layout>
@@ -323,7 +340,7 @@
      <x>0</x>
      <y>0</y>
      <width>935</width>
-     <height>25</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlik">

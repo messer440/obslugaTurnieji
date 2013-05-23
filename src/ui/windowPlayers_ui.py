@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'src/ui/windowPlayers.ui'
 #
-# Created: Thu May 23 00:34:10 2013
-#      by: PyQt4 UI code generator 4.10.1
+# Created: Thu May 23 11:32:02 2013
+#      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,21 +12,12 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    def _fromUtf8(s):
-        return s
-
-try:
-    _encoding = QtGui.QApplication.UnicodeUTF8
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
-except AttributeError:
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
+    _fromUtf8 = lambda s: s
 
 class Ui_windowPlayers(object):
     def setupUi(self, windowPlayers):
         windowPlayers.setObjectName(_fromUtf8("windowPlayers"))
-        windowPlayers.resize(935, 644)
+        windowPlayers.resize(935, 650)
         self.centralwidget = QtGui.QWidget(windowPlayers)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.gridLayout_2 = QtGui.QGridLayout(self.centralwidget)
@@ -62,18 +53,18 @@ class Ui_windowPlayers(object):
         self.inputPlec = QtGui.QTextBrowser(self.centralwidget)
         self.inputPlec.setReadOnly(False)
         self.inputPlec.setObjectName(_fromUtf8("inputPlec"))
-        self.gridLayout.addWidget(self.inputPlec, 3, 2, 1, 1)
+        self.gridLayout.addWidget(self.inputPlec, 4, 2, 1, 1)
         self.plec = QtGui.QLabel(self.centralwidget)
         self.plec.setAlignment(QtCore.Qt.AlignCenter)
         self.plec.setObjectName(_fromUtf8("plec"))
-        self.gridLayout.addWidget(self.plec, 3, 0, 1, 1)
+        self.gridLayout.addWidget(self.plec, 4, 0, 1, 1)
         self.inputImie = QtGui.QTextBrowser(self.centralwidget)
         self.inputImie.setReadOnly(False)
         self.inputImie.setObjectName(_fromUtf8("inputImie"))
         self.gridLayout.addWidget(self.inputImie, 1, 2, 1, 1)
         self.buttonNext = QtGui.QPushButton(self.centralwidget)
         self.buttonNext.setObjectName(_fromUtf8("buttonNext"))
-        self.gridLayout.addWidget(self.buttonNext, 5, 2, 1, 1)
+        self.gridLayout.addWidget(self.buttonNext, 6, 2, 1, 1)
         self.inputNazw = QtGui.QTextBrowser(self.centralwidget)
         self.inputNazw.setReadOnly(False)
         self.inputNazw.setObjectName(_fromUtf8("inputNazw"))
@@ -81,18 +72,18 @@ class Ui_windowPlayers(object):
         self.rank = QtGui.QLabel(self.centralwidget)
         self.rank.setAlignment(QtCore.Qt.AlignCenter)
         self.rank.setObjectName(_fromUtf8("rank"))
-        self.gridLayout.addWidget(self.rank, 4, 0, 1, 1)
+        self.gridLayout.addWidget(self.rank, 5, 0, 1, 1)
         self.inputRank = QtGui.QTextBrowser(self.centralwidget)
         self.inputRank.setReadOnly(False)
         self.inputRank.setObjectName(_fromUtf8("inputRank"))
-        self.gridLayout.addWidget(self.inputRank, 4, 2, 1, 1)
+        self.gridLayout.addWidget(self.inputRank, 5, 2, 1, 1)
         self.nazwisko = QtGui.QLabel(self.centralwidget)
         self.nazwisko.setAlignment(QtCore.Qt.AlignCenter)
         self.nazwisko.setObjectName(_fromUtf8("nazwisko"))
         self.gridLayout.addWidget(self.nazwisko, 2, 0, 1, 1)
         self.buttonPrev = QtGui.QPushButton(self.centralwidget)
         self.buttonPrev.setObjectName(_fromUtf8("buttonPrev"))
-        self.gridLayout.addWidget(self.buttonPrev, 5, 0, 1, 1)
+        self.gridLayout.addWidget(self.buttonPrev, 6, 0, 1, 1)
         self.imie = QtGui.QLabel(self.centralwidget)
         self.imie.setAlignment(QtCore.Qt.AlignCenter)
         self.imie.setObjectName(_fromUtf8("imie"))
@@ -125,6 +116,14 @@ class Ui_windowPlayers(object):
         self.horizontalLayout.addWidget(self.liczbaGraczyVal)
         self.horizontalLayout_2.addLayout(self.horizontalLayout)
         self.gridLayout.addWidget(self.frame_2, 0, 2, 1, 1)
+        self.wiek = QtGui.QLabel(self.centralwidget)
+        self.wiek.setAlignment(QtCore.Qt.AlignCenter)
+        self.wiek.setObjectName(_fromUtf8("wiek"))
+        self.gridLayout.addWidget(self.wiek, 3, 0, 1, 1)
+        self.inputWiek = QtGui.QTextBrowser(self.centralwidget)
+        self.inputWiek.setReadOnly(False)
+        self.inputWiek.setObjectName(_fromUtf8("inputWiek"))
+        self.gridLayout.addWidget(self.inputWiek, 3, 2, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 3, 0, 2, 1)
         self.frame = QtGui.QFrame(self.centralwidget)
         self.frame.setFrameShape(QtGui.QFrame.Box)
@@ -171,7 +170,7 @@ class Ui_windowPlayers(object):
         self.gridLayout_2.addWidget(self.line, 1, 0, 2, 1)
         windowPlayers.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(windowPlayers)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 935, 25))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 935, 24))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuPlik = QtGui.QMenu(self.menubar)
         self.menuPlik.setObjectName(_fromUtf8("menuPlik"))
@@ -195,24 +194,25 @@ class Ui_windowPlayers(object):
         QtCore.QMetaObject.connectSlotsByName(windowPlayers)
 
     def retranslateUi(self, windowPlayers):
-        windowPlayers.setWindowTitle(_translate("windowPlayers", "Gracze", None))
-        self.buttonZakoncz.setText(_translate("windowPlayers", "Zakończ", None))
-        self.label.setText(_translate("windowPlayers", "Szukaj", None))
-        self.buttonSearch.setText(_translate("windowPlayers", "Znajdź", None))
-        self.plec.setText(_translate("windowPlayers", "Płeć", None))
-        self.buttonNext.setText(_translate("windowPlayers", "Następny", None))
-        self.rank.setText(_translate("windowPlayers", "Nr w rankingu", None))
-        self.nazwisko.setText(_translate("windowPlayers", "Nazwisko", None))
-        self.buttonPrev.setText(_translate("windowPlayers", "Poprzedni", None))
-        self.imie.setText(_translate("windowPlayers", "Imię", None))
-        self.liczbaGraczy.setText(_translate("windowPlayers", "Liczba graczy", None))
-        self.liczbaGraczyVal.setText(_translate("windowPlayers", "TextLabel", None))
-        self.infoAction.setText(_translate("windowPlayers", "Działanie na danych z formularza", None))
-        self.buttonAdd.setText(_translate("windowPlayers", "Dodaj", None))
-        self.buttonModif.setText(_translate("windowPlayers", "Modyfikuj", None))
-        self.buttonDelete.setText(_translate("windowPlayers", "Usuń", None))
-        self.menuPlik.setTitle(_translate("windowPlayers", "Plik", None))
-        self.actionImportuj.setText(_translate("windowPlayers", "Importuj", None))
-        self.actionEksportuj.setText(_translate("windowPlayers", "Eksportuj", None))
-        self.actionZakoncz.setText(_translate("windowPlayers", "Zakończ", None))
+        windowPlayers.setWindowTitle(QtGui.QApplication.translate("windowPlayers", "Gracze", None, QtGui.QApplication.UnicodeUTF8))
+        self.buttonZakoncz.setText(QtGui.QApplication.translate("windowPlayers", "Zakończ", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("windowPlayers", "Szukaj", None, QtGui.QApplication.UnicodeUTF8))
+        self.buttonSearch.setText(QtGui.QApplication.translate("windowPlayers", "Znajdź", None, QtGui.QApplication.UnicodeUTF8))
+        self.plec.setText(QtGui.QApplication.translate("windowPlayers", "Płeć", None, QtGui.QApplication.UnicodeUTF8))
+        self.buttonNext.setText(QtGui.QApplication.translate("windowPlayers", "Następny", None, QtGui.QApplication.UnicodeUTF8))
+        self.rank.setText(QtGui.QApplication.translate("windowPlayers", "Nr w rankingu", None, QtGui.QApplication.UnicodeUTF8))
+        self.nazwisko.setText(QtGui.QApplication.translate("windowPlayers", "Nazwisko", None, QtGui.QApplication.UnicodeUTF8))
+        self.buttonPrev.setText(QtGui.QApplication.translate("windowPlayers", "Poprzedni", None, QtGui.QApplication.UnicodeUTF8))
+        self.imie.setText(QtGui.QApplication.translate("windowPlayers", "Imię", None, QtGui.QApplication.UnicodeUTF8))
+        self.liczbaGraczy.setText(QtGui.QApplication.translate("windowPlayers", "Liczba graczy", None, QtGui.QApplication.UnicodeUTF8))
+        self.liczbaGraczyVal.setText(QtGui.QApplication.translate("windowPlayers", "TextLabel", None, QtGui.QApplication.UnicodeUTF8))
+        self.wiek.setText(QtGui.QApplication.translate("windowPlayers", "Wiek", None, QtGui.QApplication.UnicodeUTF8))
+        self.infoAction.setText(QtGui.QApplication.translate("windowPlayers", "Działanie na danych z formularza", None, QtGui.QApplication.UnicodeUTF8))
+        self.buttonAdd.setText(QtGui.QApplication.translate("windowPlayers", "Dodaj", None, QtGui.QApplication.UnicodeUTF8))
+        self.buttonModif.setText(QtGui.QApplication.translate("windowPlayers", "Modyfikuj", None, QtGui.QApplication.UnicodeUTF8))
+        self.buttonDelete.setText(QtGui.QApplication.translate("windowPlayers", "Usuń", None, QtGui.QApplication.UnicodeUTF8))
+        self.menuPlik.setTitle(QtGui.QApplication.translate("windowPlayers", "Plik", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionImportuj.setText(QtGui.QApplication.translate("windowPlayers", "Importuj", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionEksportuj.setText(QtGui.QApplication.translate("windowPlayers", "Eksportuj", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionZakoncz.setText(QtGui.QApplication.translate("windowPlayers", "Zakończ", None, QtGui.QApplication.UnicodeUTF8))
 
