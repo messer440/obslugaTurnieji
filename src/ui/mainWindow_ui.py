@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'src/ui/mainWindow.ui'
 #
-# Created: Thu May 23 11:32:02 2013
+# Created: Thu May 23 11:58:28 2013
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -35,14 +35,14 @@ class Ui_MainWindow(object):
         self.page = QtGui.QWidget()
         self.page.setObjectName(_fromUtf8("page"))
         self.verticalLayoutWidget_2 = QtGui.QWidget(self.page)
-        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(0, 0, 89, 558))
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(0, 0, 111, 558))
         self.verticalLayoutWidget_2.setObjectName(_fromUtf8("verticalLayoutWidget_2"))
         self.gridLayout_4 = QtGui.QGridLayout(self.verticalLayoutWidget_2)
         self.gridLayout_4.setMargin(0)
         self.gridLayout_4.setObjectName(_fromUtf8("gridLayout_4"))
-        self.pushButton = QtGui.QPushButton(self.verticalLayoutWidget_2)
-        self.pushButton.setObjectName(_fromUtf8("pushButton"))
-        self.gridLayout_4.addWidget(self.pushButton, 0, 0, 1, 1)
+        self.dodajTurniej = QtGui.QPushButton(self.verticalLayoutWidget_2)
+        self.dodajTurniej.setObjectName(_fromUtf8("dodajTurniej"))
+        self.gridLayout_4.addWidget(self.dodajTurniej, 0, 0, 1, 1)
         self.stackedWidget.addWidget(self.page)
         self.page_2 = QtGui.QWidget()
         self.page_2.setObjectName(_fromUtf8("page_2"))
@@ -71,8 +71,8 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Obsługa Turnieji", None, QtGui.QApplication.UnicodeUTF8))
-        self.pushButton.setText(QtGui.QApplication.translate("MainWindow", "PushButton", None, QtGui.QApplication.UnicodeUTF8))
+        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Obsługa Turniejów", None, QtGui.QApplication.UnicodeUTF8))
+        self.dodajTurniej.setText(QtGui.QApplication.translate("MainWindow", "Dodaj turniej", None, QtGui.QApplication.UnicodeUTF8))
         self.gracze.setText(QtGui.QApplication.translate("MainWindow", "Gracze", None, QtGui.QApplication.UnicodeUTF8))
         self.korty.setText(QtGui.QApplication.translate("MainWindow", "Korty", None, QtGui.QApplication.UnicodeUTF8))
         self.buttonExit.setText(QtGui.QApplication.translate("MainWindow", "Wyjdź", None, QtGui.QApplication.UnicodeUTF8))

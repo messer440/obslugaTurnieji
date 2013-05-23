@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Obsługa Turnieji</string>
+   <string>Obsługa Turniejów</string>
   </property>
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
@@ -58,15 +58,15 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>89</width>
+            <width>111</width>
             <height>558</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_4">
            <item row="0" column="0">
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="dodajTurniej">
              <property name="text">
-              <string>PushButton</string>
+              <string>Dodaj turniej</string>
              </property>
             </widget>
            </item>

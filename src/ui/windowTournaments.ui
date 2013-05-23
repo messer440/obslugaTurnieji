@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>windowTournaments</class>
+ <widget class="QMainWindow" name="windowTournaments">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>291</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="3" column="0">
+     <widget class="QLabel" name="korty">
+      <property name="text">
+       <string>Korty</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="nazwaTurnieju">
+      <property name="text">
+       <string>Nazwa turnieju</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QCheckBox" name="checkLosowe">
+        <property name="text">
+         <string>Losowe</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkRanking">
+        <property name="text">
+         <string>wg rankingu</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="zawodnicy">
+      <property name="text">
+       <string>Zawodnicy</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QTextBrowser" name="inputNazwa"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="rozstawienie">
+      <property name="text">
+       <string>Rozstawienie</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="buttonWybierzKort">
+      <property name="text">
+       <string>Wybierz ...</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="buttonWybierzZaw">
+        <property name="text">
+         <string>Wybierz ...</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="buttonImport">
+        <property name="text">
+         <string>Import z pliku ...</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="5" column="1">
+     <widget class="QPushButton" name="buttonZapisz">
+      <property name="font">
+       <font>
+        <family>Zero Threes</family>
+        <pointsize>13</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Zapisz</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QPushButton" name="buttonAnuluj">
+      <property name="text">
+       <string>Anuluj</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
