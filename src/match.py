@@ -11,3 +11,4 @@ import myZODB
 class Match(object):
 	self.players = []
 	self.ended = False
+	self.results = ''
