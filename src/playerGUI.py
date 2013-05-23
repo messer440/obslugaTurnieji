@@ -8,9 +8,9 @@ import importGUI
 import player
 import myZODB, transaction
 
-class PlayersGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
+class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 	def __init__(self, parent=None, name=None, fl=0):
-		super(PlayersGUI, self).__init__(parent)
+		super(PlayerGUI, self).__init__(parent)
 		self.setupUi(self)
 		self.otherWindow = None
 		self.playerIdx = 0

@@ -20,12 +20,12 @@ class MyZODB(object):
 			QtGui.QMessageBox.warning(None, 'MyZODB __init__ ',\
 					'Nie mozna otworzyc bazy danych!')
 
-	def close(self):
+	def close(self):#{{{
 		self.connection.close()
 		self.db.close()
-		self.storage.close()
+		self.storage.close()#}}}
 
-	def count(self, path):
+	def count(self, path):#{{{
 		try:
 			self.storage = FileStorage.FileStorage(path)
 			self.db = DB(self.storage)
@@ -35,6 +35,4 @@ class MyZODB(object):
 			self.lenght = len(self.keys)
 		except:
 			QtGui.QMessageBox.warning(self, 'Error bazy danych!',\
-					'Nie mozna pobrac wielkosci bazy!')
-
-
+					'Nie mozna pobrac wielkosci bazy!')#}}}

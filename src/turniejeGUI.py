@@ -14,27 +14,27 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 		
 		self.otherWindow = None
 
-		### SIGNALS ###
+		### SIGNALS ####{{{
 #		self.gracze.connect(self.gracze, SIGNAL('clicked()'), self.openPlayers)
 		self.dodajTurniej.connect(self.dodajTurniej, SIGNAL('clicked()'), self.openTournaments)
-		self.buttonExit.connect(self.buttonExit, SIGNAL('clicked()'), self.close)
+		self.buttonExit.connect(self.buttonExit, SIGNAL('clicked()'), self.close)#}}}
 
-	def openTournaments(self):
+	def openTournaments(self):#{{{
 		self.statusbar.showMessage("Dodaj turniej")
 		self.otherWindow = dodajTurniejGUI.DodajTurniejGUI() 
-		self.otherWindow.show()
+		self.otherWindow.show()#}}}
 
-#	def openPlayers(self):
+#	def openPlayers(self):#{{{
 #		self.statusbar.showMessage("Edycja graczy")
 #		self.otherWindow = playerGUI.PlayersGUI() 
-#		self.otherWindow.show()
+#		self.otherWindow.show()#}}}
 	
-	def closeEvent(self, event):
+	def closeEvent(self, event):#{{{
 		if (self.otherWindow != None):
-			self.otherWindow.close()
+			self.otherWindow.close()#}}}
 
-	def main(self):
-		self.show()
+	def main(self):#{{{
+		self.show()#}}}
 
-	def exit(self):
-		sys.exit()
+	def exit(self):#{{{
+		sys.exit()#}}}

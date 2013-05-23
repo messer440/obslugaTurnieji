@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>291</height>
+    <height>381</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,10 +15,77 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="3" column="0">
+    <item row="6" column="2">
+     <widget class="QPushButton" name="buttonZapisz">
+      <property name="font">
+       <font>
+        <family>Zero Threes</family>
+        <pointsize>13</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Zapisz</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="buttonWybierzZaw">
+        <property name="text">
+         <string>Wybierz ...</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="buttonImport">
+        <property name="text">
+         <string>Import z pliku ...</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="4" column="0">
      <widget class="QLabel" name="korty">
       <property name="text">
        <string>Korty</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QPushButton" name="buttonAnuluj">
+      <property name="text">
+       <string>Anuluj</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QPushButton" name="buttonWybierzKort">
+      <property name="text">
+       <string>Wybierz ...</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="rozstawienie">
+      <property name="text">
+       <string>Rozstawienie</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="skrotNazwy">
+      <property name="text">
+       <string>Skrócona nazwa</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -35,7 +102,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="1">
+    <item row="5" column="2">
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <widget class="QCheckBox" name="checkLosowe">
@@ -56,7 +123,14 @@
       </item>
      </layout>
     </item>
-    <item row="2" column="0">
+    <item row="1" column="2">
+     <widget class="QTextBrowser" name="inputNazwa">
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
      <widget class="QLabel" name="zawodnicy">
       <property name="text">
        <string>Zawodnicy</string>
@@ -66,63 +140,10 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QTextBrowser" name="inputNazwa"/>
-    </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="rozstawienie">
-      <property name="text">
-       <string>Rozstawienie</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QPushButton" name="buttonWybierzKort">
-      <property name="text">
-       <string>Wybierz ...</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QPushButton" name="buttonWybierzZaw">
-        <property name="text">
-         <string>Wybierz ...</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="buttonImport">
-        <property name="text">
-         <string>Import z pliku ...</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="5" column="1">
-     <widget class="QPushButton" name="buttonZapisz">
-      <property name="font">
-       <font>
-        <family>Zero Threes</family>
-        <pointsize>13</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Zapisz</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QPushButton" name="buttonAnuluj">
-      <property name="text">
-       <string>Anuluj</string>
+    <item row="2" column="2">
+     <widget class="QTextBrowser" name="inputSkrotNazwy">
+      <property name="readOnly">
+       <bool>false</bool>
       </property>
      </widget>
     </item>
