@@ -26,30 +26,35 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 	
 	def checkUID(self):
 		self.getExisted()
-		for self.ui
+		if (self.getId()):
+			if self.uid not in self.existing:
+				return True
+			else:
+				QtGui.QMessageBox.warning(self, 'Podany turniej istnieje!',\
+						'Podany turniej istnieje juz w bazie\nProsze podac inna skrocona nazwe!')
 
 
 	def getExisted(self):#{{{
-		self.tournamentsDB = myZODB.myZODB('src/db/tournaments.fs')
-		self.tournaments = self.tournamentsDB.dbroot()
+		self.tournamentsDB = myZODB.MyZODB('src/db/tournaments.fs')
+		self.tournaments = self.tournamentsDB.dbroot
 		self.existing = self.tournaments.keys()
-		self.playersDB.close()#}}}
+		self.tournamentsDB.close()#}}}
 
 	def openWindowPlayer(self):#{{{
-		if (self.tournamentId()):
-			self.otherWindow = playerGUI.PlayerGUI()
+		if (self.checkUID()):
+			self.otherWindow = playerGUI.PlayerGUI(self.uid)
 			self.otherWindow.show()#}}}
 
 	def openImportPlayer(self):#{{{
-		if (self.tournamentId()):
+		if (self.checkUID()):
 			self.otherWindow = importGUI.ImportGUI()
 			self.otherWindow.show()#}}}
 
-	def tournamentId(self):#{{{
+	def getId(self):#{{{
 		if (self.inputSkrotNazwy.toPlainText() != '') and (self.inputNazwa.toPlainText() != ''):
 			self.uid = self.inputSkrotNazwy.toPlainText()
 			self.name = self.inputNazwa.toPlainText()
-			return self.checkUID()
+			return True
 		else:
 			QtGui.QMessageBox.information(self, 'Brakuje informacji',\
 						str("Prosze podac nazwe turnieju oraz skrocona wersje"))

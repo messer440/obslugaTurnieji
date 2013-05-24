@@ -9,11 +9,12 @@ import player
 import myZODB, transaction
 
 class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
-	def __init__(self, parent=None, name=None, fl=0):
+	def __init__(self, tournamentID, parent=None, name=None, fl=0):
 		super(PlayerGUI, self).__init__(parent)
 		self.setupUi(self)
 		self.otherWindow = None
 		self.playerIdx = 0
+		self.dbpath = 'src/db/players/' + str(tournamentID) + '.fs'
 
 		self.initForm(self.playerIdx)
 
@@ -28,7 +29,7 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		self.buttonAdd.connect(self.buttonAdd, SIGNAL("clicked()"), self.addPlayer)#}}}
 
 	def initForm(self, playerIdx):#{{{
-		self.playersDB = myZODB.MyZODB('src/db/players.fs')
+		self.playersDB = myZODB.MyZODB(self.dbpath)
 		self.players = self.playersDB.dbroot
 		self.count = len(self.players.keys())
 		self.liczbaGraczyVal.setText(str(self.count))
@@ -44,7 +45,7 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 
 	def delPlayer(self):#{{{
 		try:
-			self.playersDB = myZODB.MyZODB('src/db/players.fs')
+			self.playersDB = myZODB.MyZODB(self.dbpath)
 			self.players = self.playersDB.dbroot
 			self.count = len(self.players.keys())
 			self.keys = self.players.keys()
@@ -68,7 +69,7 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 			if (exitVal == False):
 				return
 			
-			self.playersDB = myZODB.MyZODB('src/db/players.fs')
+			self.playersDB = myZODB.MyZODB(self.dbpath)
 			self.players = self.playersDB.dbroot
 			self.count = len(self.players.keys())
 			self.keys = self.players.keys()
@@ -93,7 +94,7 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 
 			self.newPlayer = player.Player(self.params)
 			try:
-				self.playersDB = myZODB.MyZODB('src/db/players.fs')
+				self.playersDB = myZODB.MyZODB(self.dbpath)
 				self.players = self.playersDB.dbroot
 			except:
 				QtGui.QMessageBox.warning(self, 'Error bazy danych!',\
