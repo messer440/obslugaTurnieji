@@ -4,7 +4,7 @@ from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import SIGNAL, SLOT
 import sys, string, re, os
 from src.ui import mainWindow_ui
-import playerGUI, dodajTurniejGUI
+import playerGUI, dodajTurniejGUI, courtsGUI
 import myZODB
 
 class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
@@ -15,9 +15,14 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 		self.otherWindow = None
 
 		### SIGNALS ####{{{
-#		self.gracze.connect(self.gracze, SIGNAL('clicked()'), self.openPlayers)
+		self.korty.connect(self.korty, SIGNAL('clicked()'), self.openCourts)
 		self.dodajTurniej.connect(self.dodajTurniej, SIGNAL('clicked()'), self.openTournaments)
 		self.buttonExit.connect(self.buttonExit, SIGNAL('clicked()'), self.close)#}}}
+
+	def openCourts(self):#{{{
+		self.statusbar.showMessage("Edycja kortow tenisowych")
+		self.otherWindow = courtsGUI.CourtsGUI()
+		self.otherWindow.show()#}}}
 
 	def openTournaments(self):#{{{
 		self.statusbar.showMessage("Dodaj turniej")
