@@ -14,8 +14,9 @@ class Tournament(Persistent):
 			self.name = lName
 			self.uid = uid
 			self.playersDB = myZODB.MyZODB('src/db/players/' + str(uid) + '.fs')
-			self.players = self.playersDB.root
-			self.matches = []
+			self.players = self.playersDB.dbroot
+			self.matchesDB = myZODB.MyZODB('src/db/matches' + str(uid) + '.fs')
+			self.matches = self.matchesDB.dbroot
 			self.courts = []
 		except:
 			QtGui.QMessageBox.warning(self, 'Problem bazy danych',\
