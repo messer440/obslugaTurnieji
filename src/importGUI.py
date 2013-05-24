@@ -8,9 +8,10 @@ import player, playerGUI
 import myZODB, transaction
 
 class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
-	def __init__(self, parent=None, name=None, fl=0):
+	def __init__(self, tournament, parent=None, name=None, fl=0):
 		super(ImportGUI, self).__init__(parent)
 		self.setupUi(self)
+		self.dbpath = 'src/db/players/' + str(tournament) + '.fs'
 		
 		### SIGNALS ### #{{{
 		self.buttonAnuluj.connect(self.buttonAnuluj, SIGNAL("clicked()"), self.close)
@@ -22,7 +23,7 @@ class ImportGUI(QtGui.QDialog, dialogImport_ui.Ui_dialogImport):
 		fname = QtGui.QFileDialog.getOpenFileName(self, 'Importuj plik', '.')
 		file = open(fname, 'r')
 		try:
-			self.playersDB = myZODB.MyZODB('src/db/players.fs')
+			self.playersDB = myZODB.MyZODB(self.dbpath)
 			self.players = self.playersDB.dbroot
 		except:
 			QtGui.QMessageBox.warning(self, 'Error bazy danych!',\
