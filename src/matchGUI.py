@@ -16,16 +16,20 @@ class matchGUI(QtGui.QtForm, mecz_ui.Ui_Form):
         self.label.setText(self, player1.fName+" "+player1.lName)
         self.label2.setText(self, player2.fName+" "+player2.lName)
         self.noOfPlayers=0
-        ### SIGNALS ### #{{{
-        self.buttonModif.connect(self.pushButton, SIGNAL("clicked()"), self.submitMatch)
         self.setGeometry(posx, posy, 100, 100)
         if levelUp=None:
             self.pushButton.setDisabled(True)
 		self.matchStatus=0;
 		self.match=text_match
+		### SIGNALS ### #
+        self.buttonModif.connect(self.pushButton, SIGNAL("clicked()"), self.submitMatch)
+		self.showPlayers()
 	def addMatch(self,match)
-		self.label.setText(self, match.players[0].fName+" "+match.players[0].lName)
-		self.label.setText(self, match.players[1].fName+" "+match.players[1].lName)	
+		self.match=match
+		self.showPlayers()
+	def showPlayers(self)
+		self.label.setText(self, self.match.players[0].fName+" "+self.match.players[0].lName)
+		self.label.setText(self, self.match.players[1].fName+" "+self.match.players[1].lName)
     def submitMatch(self):
 		match.points[0]=self.spinBox.value()
 		match.points[1]=self.spinBox2.value()
