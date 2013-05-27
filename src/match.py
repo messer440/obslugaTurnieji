@@ -9,6 +9,15 @@ except:
 import myZODB
 
 class Match(object):
-	self.players = []
-	self.ended = False
-	self.results = ''
+	def __init__(self,plyers=None,points=None)
+		self.players = players
+		self.ended = False
+		self.points = points
+	def addPlayer(self, player)
+		if players.length<2:
+			self.players.append(plyer)
+	def addResult(self,points)
+		self.points=points
+	def addResult(self,p1,p2)
+		addResult([p1,p2])
+		

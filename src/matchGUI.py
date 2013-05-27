@@ -8,7 +8,7 @@ import myZODB, transaction
 
 
 class matchGUI(QtGui.QtForm, mecz_ui.Ui_Form):
-    def __init__(self,  posx,  posy,levelUp=None,  text_match=None,  parent=None, name=None):
+    def __init__(self,  posx,  posy,levelUp=None,  text_match=match(),  parent=None, name=None):
         super(matchGUI, self).__init__(parent)
         self.setupUi(self)
         self.otherWindow = None
@@ -21,16 +21,24 @@ class matchGUI(QtGui.QtForm, mecz_ui.Ui_Form):
         self.setGeometry(posx, posy, 100, 100)
         if levelUp=None:
             self.pushButton.setDisabled(True)
+		self.matchStatus=0;
+		self.match=text_match
+	def addMatch(self,match)
+		self.label.setText(self, match.players[0].fName+" "+match.players[0].lName)
+		self.label.setText(self, match.players[1].fName+" "+match.players[1].lName)	
     def submitMatch(self):
-        if self.spinBox.value()>self.spinBox2.value():
-            levelUp.addPlayer(this. player1)
-        else:
-            levelUp.addPlayer(this. player2)
-    def addPlayer(self, player):
-        if self.noOfPlayers==0:
-            self.label.setText(self, player.fName+" "+player.lName)
-            self.player1=player
-        elif  self.noOfPlayers==1:
-            self.label2.setText(self, player.fName+" "+player.lName)
-            self.player2=player
-        self.noOfPlayers=self.noOfPlayers+1
+		match.points[0]=self.spinBox.value()
+		match.points[1]=self.spinBox2.value()
+		submitWinner()
+    def addPlayerToMatch(self, player):
+		self.match.addPlayer(player)
+	def submitWinner(self)
+		if self.spinBox.value()>self.spinBox2.value():
+			levelUp.addPlayerToMatch(player[0])
+		else:
+			levelUp.addPlayerToMatch(player[1])
+			
+		
+		
+		
+
