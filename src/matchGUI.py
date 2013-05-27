@@ -8,7 +8,7 @@ import myZODB, transaction
 
 
 class matchGUI(QtGui.QtForm, mecz_ui.Ui_Form):
-    def __init__(self,  posx,  posy,levelUp,  text_match=None,  parent=None, name=None):
+    def __init__(self,  posx,  posy,levelUp=None,  text_match=None,  parent=None, name=None):
         super(matchGUI, self).__init__(parent)
         self.setupUi(self)
         self.otherWindow = None
@@ -17,7 +17,10 @@ class matchGUI(QtGui.QtForm, mecz_ui.Ui_Form):
         self.label2.setText(self, player2.fName+" "+player2.lName)
         self.noOfPlayers=0
         ### SIGNALS ### #{{{
-        self.buttonModif.connect(self.self.pushButton, SIGNAL("clicked()"), self.submitMatch)
+        self.buttonModif.connect(self.pushButton, SIGNAL("clicked()"), self.submitMatch)
+        self.setGeometry(posx, posy, 100, 100)
+        if levelUp=None:
+            self.pushButton.setDisabled(True)
     def submitMatch(self):
         if self.spinBox.value()>self.spinBox2.value():
             levelUp.addPlayer(this. player1)
