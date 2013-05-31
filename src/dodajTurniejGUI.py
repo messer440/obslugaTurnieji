@@ -4,7 +4,7 @@ from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import SIGNAL, SLOT
 import sys, string, re, os
 from src.ui import windowTournaments_ui
-import importGUI, playerGUI
+import importGUI, playerGUI, chooseCourtsGUI
 import player
 import myZODB, transaction
 
@@ -16,29 +16,35 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 
 		### Tournaments var ####{{{
 		self.name = None
-		self.uid = None#}}}
+		self.uid = None
+		self.courts = []#}}}
 
 		### SIGNALS ####{{{
 		self.buttonAnuluj.connect(self.buttonAnuluj, SIGNAL("clicked()"), self.close)
 		self.buttonImport.connect(self.buttonImport, SIGNAL("clicked()"), self.openImportPlayer)
+		self.buttonWybierzKort.connect(self.buttonWybierzKort, SIGNAL("clicked()"), self.openChooseCourts)
 		self.inputSkrotNazwy.connect(self.inputSkrotNazwy, SIGNAL("textChanged()"), self.checkUID)
 		self.buttonWybierzZaw.connect(self.buttonWybierzZaw, SIGNAL("clicked()"), self.openWindowPlayer)#}}}
 	
-	def checkUID(self):
+	def checkUID(self):#{{{
 		self.getExisted()
 		if (self.getId()):
 			if self.uid not in self.existing:
 				return True
 			else:
 				QtGui.QMessageBox.warning(self, 'Podany turniej istnieje!',\
-						'Podany turniej istnieje juz w bazie\nProsze podac inna skrocona nazwe!')
-
+						'Podany turniej istnieje juz w bazie\nProsze podac inna skrocona nazwe!')#}}}
 
 	def getExisted(self):#{{{
 		self.tournamentsDB = myZODB.MyZODB('src/db/tournaments.fs')
 		self.tournaments = self.tournamentsDB.dbroot
 		self.existing = self.tournaments.keys()
 		self.tournamentsDB.close()#}}}
+	
+	def openChooseCourts(self):
+		if (self.checkUID()):
+			self.otherWindow = chooseCourtsGUI.ChooseCourtsGUI(self.courts)
+			self.otherWindow.show()#}}}
 
 	def openWindowPlayer(self):#{{{
 		if (self.checkUID()):
