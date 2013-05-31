@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'src/ui/wChooseCourts.ui'
 #
-# Created: Fri May 31 15:57:09 2013
+# Created: Fri May 31 17:32:54 2013
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,7 +17,12 @@ except AttributeError:
 class Ui_wChooseCourts(object):
     def setupUi(self, wChooseCourts):
         wChooseCourts.setObjectName(_fromUtf8("wChooseCourts"))
-        wChooseCourts.resize(800, 600)
+        wChooseCourts.resize(197, 69)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(wChooseCourts.sizePolicy().hasHeightForWidth())
+        wChooseCourts.setSizePolicy(sizePolicy)
         self.centralwidget = QtGui.QWidget(wChooseCourts)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)

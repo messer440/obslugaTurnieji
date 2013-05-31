@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'src/ui/windowTournaments.ui'
 #
-# Created: Fri May 31 15:57:10 2013
+# Created: Fri May 31 17:32:54 2013
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -97,7 +97,7 @@ class Ui_windowTournaments(object):
         QtCore.QMetaObject.connectSlotsByName(windowTournaments)
 
     def retranslateUi(self, windowTournaments):
-        windowTournaments.setWindowTitle(QtGui.QApplication.translate("windowTournaments", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
+        windowTournaments.setWindowTitle(QtGui.QApplication.translate("windowTournaments", "Stwórz turniej", None, QtGui.QApplication.UnicodeUTF8))
         self.buttonZapisz.setText(QtGui.QApplication.translate("windowTournaments", "Zapisz", None, QtGui.QApplication.UnicodeUTF8))
         self.buttonWybierzZaw.setText(QtGui.QApplication.translate("windowTournaments", "Wybierz ...", None, QtGui.QApplication.UnicodeUTF8))
         self.buttonImport.setText(QtGui.QApplication.translate("windowTournaments", "Import z pliku ...", None, QtGui.QApplication.UnicodeUTF8))

@@ -14,24 +14,27 @@ class ChooseCourtsGUI(QtGui.QMainWindow, wChooseCourts_ui.Ui_wChooseCourts):
 		self.dbpath = 'src/db/courts.fs'
 		self.courtsList = courtsList
 		self.otherWindow = None
+		expandWindow(wChooseCourts_ui.Ui_wChooseCourts)
 
-		### Dynamic layout ###
-		self.centralwidget = QtGui.QWidget(self)
-		self.centralwidget.adjustSize() #resize(800,600)
-		self.gridLayout = QtGui.QGridLayout(self.centralwidget)
 
-		self.courtsDB = myZODB.MyZODB(self.dbpath)
-		self.courts = self.courtsDB.dbroot
-		self.courtNumb = 0
-		self.checkboxes = []
-		for key in self.courts.keys():
-			self.checkboxes.append(QtGui.QCheckBox(self.courts[key].name, self))
-			self.gridLayout.addWidget(self.checkboxes[self.courtNumb], self.courtNumb, self.courtNumb % 2, 1, 1)
-			self.courtNumb += 1
+def expandWindow(self):
+	### Dynamic layout ###
+	self.centralwidget = QtGui.QWidget()
+	self.gridLayout = QtGui.QGridLayout(self.centralwidget)
 
-		for checkBox in self.checkboxes:
-			checkBox.show()
+	self.courtsDB = myZODB.MyZODB(self.dbpath)
+	self.courts = self.courtsDB.dbroot
+	self.courtNumb = 0
+	self.checkboxes = []
+	for key in self.courts.keys():
+		self.checkboxes.append(QtGui.QCheckBox(self.courts[key].name, self))
+		self.gridLayout.addWidget(self.checkboxes[self.courtNumb], self.courtNumb, self.courtNumb % 2, 1, 1)
+		self.courtNumb += 1
 
-		self.courtsDB.close()
+	for checkBox in self.checkboxes:
+		checkBox.show()
 
+	self.centralwidget.adjustSize()
+	self.centralwidget.setLayout(self.gridLayout)
+	self.courtsDB.close()
 
