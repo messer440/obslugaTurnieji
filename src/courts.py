@@ -9,6 +9,7 @@ class Courts():
 		self.city = city
 		self.number = number
 		self.uid = str(md5.new(self.name + self.street + self.place + self.city + self.number).hexdigest())
+		self.address = self.street + " " + self.place + "\n" + self.city
 
 	def __repr__ (self):
 		msg = "Nazwa: %s\nAdres: %s\nLiczba kortow: %s"  % (self.name, self.street + self.place + "\n" + self.city, self.number)

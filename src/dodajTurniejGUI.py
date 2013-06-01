@@ -70,8 +70,8 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 	
 	def openChooseCourts(self):#{{{
 		if (self.checkUID()):
-			self.otherWindow = chooseCourtsGUI.ChooseCourtsGUI(self.courts)
-			self.otherWindow.show()#}}}
+			self.child = chooseCourtsGUI.ChooseCourtsGUI(self.courts)
+			self.child.show()#}}}
 
 	def openWindowPlayer(self):#{{{
 		if (self.checkUID()):
@@ -94,7 +94,7 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 			return False#}}}
 
 	def sortPlayers(self):#{{{
-		if (self.random = False):
+		if (self.random == False):
 			self.tmp = {}
 			for key in self.tournaments[self.uid].players.keys():
 				self.tmp[key] = self.tournaments[self.uid].players[key].rank

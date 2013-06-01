@@ -3,6 +3,7 @@ from PyQt4 import QtCore, QtGui
 try:
 	from ZODB import FileStorage, DB
 	import transaction
+	from persistent import Persistent
 except:
 	QtGui.QMessageBox.warning(self, 'Brakujacy modul',\
 			'Do dzialania potrzebny jest modul ZODB do pythona')
