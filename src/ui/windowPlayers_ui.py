@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'src/ui/windowPlayers.ui'
 #
-# Created: Fri May 31 17:32:54 2013
-#      by: PyQt4 UI code generator 4.9.1
+# Created: Fri May 31 18:40:21 2013
+#      by: PyQt4 UI code generator 4.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,16 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_windowPlayers(object):
     def setupUi(self, windowPlayers):
@@ -194,25 +203,25 @@ class Ui_windowPlayers(object):
         QtCore.QMetaObject.connectSlotsByName(windowPlayers)
 
     def retranslateUi(self, windowPlayers):
-        windowPlayers.setWindowTitle(QtGui.QApplication.translate("windowPlayers", "Gracze", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonZakoncz.setText(QtGui.QApplication.translate("windowPlayers", "Zakończ", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("windowPlayers", "Szukaj", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonSearch.setText(QtGui.QApplication.translate("windowPlayers", "Znajdź", None, QtGui.QApplication.UnicodeUTF8))
-        self.plec.setText(QtGui.QApplication.translate("windowPlayers", "Płeć", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonNext.setText(QtGui.QApplication.translate("windowPlayers", "Następny", None, QtGui.QApplication.UnicodeUTF8))
-        self.rank.setText(QtGui.QApplication.translate("windowPlayers", "Nr w rankingu", None, QtGui.QApplication.UnicodeUTF8))
-        self.nazwisko.setText(QtGui.QApplication.translate("windowPlayers", "Nazwisko", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonPrev.setText(QtGui.QApplication.translate("windowPlayers", "Poprzedni", None, QtGui.QApplication.UnicodeUTF8))
-        self.imie.setText(QtGui.QApplication.translate("windowPlayers", "Imię", None, QtGui.QApplication.UnicodeUTF8))
-        self.liczbaGraczy.setText(QtGui.QApplication.translate("windowPlayers", "Liczba graczy", None, QtGui.QApplication.UnicodeUTF8))
-        self.liczbaGraczyVal.setText(QtGui.QApplication.translate("windowPlayers", "TextLabel", None, QtGui.QApplication.UnicodeUTF8))
-        self.wiek.setText(QtGui.QApplication.translate("windowPlayers", "Wiek", None, QtGui.QApplication.UnicodeUTF8))
-        self.infoAction.setText(QtGui.QApplication.translate("windowPlayers", "Działanie na danych z formularza", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonAdd.setText(QtGui.QApplication.translate("windowPlayers", "Dodaj", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonModif.setText(QtGui.QApplication.translate("windowPlayers", "Modyfikuj", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonDelete.setText(QtGui.QApplication.translate("windowPlayers", "Usuń", None, QtGui.QApplication.UnicodeUTF8))
-        self.menuPlik.setTitle(QtGui.QApplication.translate("windowPlayers", "Plik", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionImportuj.setText(QtGui.QApplication.translate("windowPlayers", "Importuj", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionEksportuj.setText(QtGui.QApplication.translate("windowPlayers", "Eksportuj", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionZakoncz.setText(QtGui.QApplication.translate("windowPlayers", "Zakończ", None, QtGui.QApplication.UnicodeUTF8))
+        windowPlayers.setWindowTitle(_translate("windowPlayers", "Gracze", None))
+        self.buttonZakoncz.setText(_translate("windowPlayers", "Zakończ", None))
+        self.label.setText(_translate("windowPlayers", "Szukaj", None))
+        self.buttonSearch.setText(_translate("windowPlayers", "Znajdź", None))
+        self.plec.setText(_translate("windowPlayers", "Płeć", None))
+        self.buttonNext.setText(_translate("windowPlayers", "Następny", None))
+        self.rank.setText(_translate("windowPlayers", "Nr w rankingu", None))
+        self.nazwisko.setText(_translate("windowPlayers", "Nazwisko", None))
+        self.buttonPrev.setText(_translate("windowPlayers", "Poprzedni", None))
+        self.imie.setText(_translate("windowPlayers", "Imię", None))
+        self.liczbaGraczy.setText(_translate("windowPlayers", "Liczba graczy", None))
+        self.liczbaGraczyVal.setText(_translate("windowPlayers", "TextLabel", None))
+        self.wiek.setText(_translate("windowPlayers", "Wiek", None))
+        self.infoAction.setText(_translate("windowPlayers", "Działanie na danych z formularza", None))
+        self.buttonAdd.setText(_translate("windowPlayers", "Dodaj", None))
+        self.buttonModif.setText(_translate("windowPlayers", "Modyfikuj", None))
+        self.buttonDelete.setText(_translate("windowPlayers", "Usuń", None))
+        self.menuPlik.setTitle(_translate("windowPlayers", "Plik", None))
+        self.actionImportuj.setText(_translate("windowPlayers", "Importuj", None))
+        self.actionEksportuj.setText(_translate("windowPlayers", "Eksportuj", None))
+        self.actionZakoncz.setText(_translate("windowPlayers", "Zakończ", None))
 

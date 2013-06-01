@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'src/ui/windowCourts.ui'
 #
-# Created: Fri May 31 17:32:54 2013
-#      by: PyQt4 UI code generator 4.9.1
+# Created: Fri May 31 18:40:21 2013
+#      by: PyQt4 UI code generator 4.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,16 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_windowCourts(object):
     def setupUi(self, windowCourts):
@@ -145,17 +154,17 @@ class Ui_windowCourts(object):
         QtCore.QMetaObject.connectSlotsByName(windowCourts)
 
     def retranslateUi(self, windowCourts):
-        windowCourts.setWindowTitle(QtGui.QApplication.translate("windowCourts", "Korty tenisowe", None, QtGui.QApplication.UnicodeUTF8))
-        self.ulica.setText(QtGui.QApplication.translate("windowCourts", "Ulica", None, QtGui.QApplication.UnicodeUTF8))
-        self.miasto.setText(QtGui.QApplication.translate("windowCourts", "Miasto", None, QtGui.QApplication.UnicodeUTF8))
-        self.nrLokalu.setText(QtGui.QApplication.translate("windowCourts", "Nr lokalu", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonAdd.setText(QtGui.QApplication.translate("windowCourts", "Dodaj", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonModif.setText(QtGui.QApplication.translate("windowCourts", "Modyfikuj", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonDel.setText(QtGui.QApplication.translate("windowCourts", "Usuń", None, QtGui.QApplication.UnicodeUTF8))
-        self.nazwa.setText(QtGui.QApplication.translate("windowCourts", "Nazwa", None, QtGui.QApplication.UnicodeUTF8))
-        self.adres.setText(QtGui.QApplication.translate("windowCourts", "Adres", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonPrev.setText(QtGui.QApplication.translate("windowCourts", "Poprzedni", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonNext.setText(QtGui.QApplication.translate("windowCourts", "Następny", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("windowCourts", "Liczba kortów", None, QtGui.QApplication.UnicodeUTF8))
-        self.liczbaKortow.setText(QtGui.QApplication.translate("windowCourts", "Liczba dostępnych adresów", None, QtGui.QApplication.UnicodeUTF8))
+        windowCourts.setWindowTitle(_translate("windowCourts", "Korty tenisowe", None))
+        self.ulica.setText(_translate("windowCourts", "Ulica", None))
+        self.miasto.setText(_translate("windowCourts", "Miasto", None))
+        self.nrLokalu.setText(_translate("windowCourts", "Nr lokalu", None))
+        self.buttonAdd.setText(_translate("windowCourts", "Dodaj", None))
+        self.buttonModif.setText(_translate("windowCourts", "Modyfikuj", None))
+        self.buttonDel.setText(_translate("windowCourts", "Usuń", None))
+        self.nazwa.setText(_translate("windowCourts", "Nazwa", None))
+        self.adres.setText(_translate("windowCourts", "Adres", None))
+        self.buttonPrev.setText(_translate("windowCourts", "Poprzedni", None))
+        self.buttonNext.setText(_translate("windowCourts", "Następny", None))
+        self.label.setText(_translate("windowCourts", "Liczba kortów", None))
+        self.liczbaKortow.setText(_translate("windowCourts", "Liczba dostępnych adresów", None))
 

@@ -2,10 +2,10 @@
 
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import SIGNAL, SLOT
-import sys, string, re, os
+import sys, string, re, os, random
 from src.ui import windowTournaments_ui
 import importGUI, playerGUI, chooseCourtsGUI
-import player
+import player, tournament
 import myZODB, transaction
 
 class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournaments):
@@ -13,18 +13,44 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 		super(DodajTurniejGUI, self).__init__(parent)
 		self.setupUi(self)
 		self.otherWindow = None
+		self.dbpath = 'src/db/tournaments.fs'
 
 		### Tournaments var ####{{{
 		self.name = None
 		self.uid = None
-		self.courts = []#}}}
+		self.random = True
+		self.courts = []
+		#}}}
 
 		### SIGNALS ####{{{
 		self.buttonAnuluj.connect(self.buttonAnuluj, SIGNAL("clicked()"), self.close)
 		self.buttonImport.connect(self.buttonImport, SIGNAL("clicked()"), self.openImportPlayer)
 		self.buttonWybierzKort.connect(self.buttonWybierzKort, SIGNAL("clicked()"), self.openChooseCourts)
+		self.buttonWybierzZaw.connect(self.buttonWybierzZaw, SIGNAL("clicked()"), self.openWindowPlayer)
+
+		self.buttonZapisz.connect(self.buttonZapisz, SIGNAL("clicked()"), self.saveTournament) 
+			
+		self.checkLosowe.connect(self.checkLosowe, SIGNAL("stateChanged(int)"), self.setRandom)
+		self.checkRanking.connect(self.checkRanking, SIGNAL("stateChanged(int)"), self.setRanking)
+
 		self.inputSkrotNazwy.connect(self.inputSkrotNazwy, SIGNAL("textChanged()"), self.checkUID)
-		self.buttonWybierzZaw.connect(self.buttonWybierzZaw, SIGNAL("clicked()"), self.openWindowPlayer)#}}}
+		#}}}
+
+	def setRandom(self,state):#{{{
+		if state == 2:
+			self.checkRanking.setCheckState(0)
+			self.random = True
+		if state == 0:
+			self.checkRanking.setCheckState(2)
+			self.random = False#}}}
+
+	def setRanking(self,state):#{{{
+		if state == 2:
+			self.checkLosowe.setCheckState(0)
+			self.random = False
+		if state == 0:
+			self.checkLosowe.setCheckState(2)
+			self.random = True#}}}
 	
 	def checkUID(self):#{{{
 		self.getExisted()
@@ -33,7 +59,8 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 				return True
 			else:
 				QtGui.QMessageBox.warning(self, 'Podany turniej istnieje!',\
-						'Podany turniej istnieje juz w bazie\nProsze podac inna skrocona nazwe!')#}}}
+						'Podany turniej istnieje juz w bazie\nProsze podac inna skrocona nazwe!')
+				return False#}}}
 
 	def getExisted(self):#{{{
 		self.tournamentsDB = myZODB.MyZODB('src/db/tournaments.fs')
@@ -41,7 +68,7 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 		self.existing = self.tournaments.keys()
 		self.tournamentsDB.close()#}}}
 	
-	def openChooseCourts(self):
+	def openChooseCourts(self):#{{{
 		if (self.checkUID()):
 			self.otherWindow = chooseCourtsGUI.ChooseCourtsGUI(self.courts)
 			self.otherWindow.show()#}}}
@@ -65,3 +92,22 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 			QtGui.QMessageBox.information(self, 'Brakuje informacji',\
 						str("Prosze podac nazwe turnieju oraz skrocona wersje"))
 			return False#}}}
+
+	def sortPlayers(self):#{{{
+		if (self.random = False):
+			self.tmp = {}
+			for key in self.tournaments[self.uid].players.keys():
+				self.tmp[key] = self.tournaments[self.uid].players[key].rank
+			self.tournaments[self.uid].playerList = sorted(self.tmp, key=self.tmp.get)
+		else:
+			self.tournaments[self.uid].playerList = random.shuffle(self.tournaments[self.uid].players.keys())				#}}}
+
+	def saveTournament(self):#{{{
+		if (checkUID()):
+			self.tournamentsDB = myZODB.MyZODB(self.dbpath)
+			self.tournaments = self.tournamentsDB.dbroot
+			self.tournaments[self.uid] = tournament.Tournament(self.name, self.uid)
+			sortPlayers()
+			self.tournamentsDB.close()#}}}
+			
+		
