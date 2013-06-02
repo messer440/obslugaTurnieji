@@ -1,3 +1,3 @@
 Program do obsługi turnieji autorstwa messer440 oraz panpo.
 
-Program napisany w Qt, korzysta z ZODB
+Program napisany w PyQt, z elementami PySide. Korzysta z ZODB do przechowywania danych.
