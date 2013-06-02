@@ -2,11 +2,10 @@
 
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import SIGNAL, SLOT
-import sys, string, re, os, random
+import sys, string, re, os, random, copy, transaction
 from src.ui import windowTournaments_ui
 import importGUI, playerGUI, chooseCourtsGUI
-import player, tournament
-import myZODB, transaction
+import player, tournament, myZODB
 
 class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournaments):
 	def __init__(self, parent=None, name=None, fl=0):
@@ -85,29 +84,44 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 
 	def getId(self):#{{{
 		if (self.inputSkrotNazwy.toPlainText() != '') and (self.inputNazwa.toPlainText() != ''):
-			self.uid = self.inputSkrotNazwy.toPlainText()
-			self.name = self.inputNazwa.toPlainText()
+			self.uid = str(self.inputSkrotNazwy.toPlainText())
+			self.name = str(self.inputNazwa.toPlainText())
 			return True
 		else:
 			QtGui.QMessageBox.information(self, 'Brakuje informacji',\
 						str("Prosze podac nazwe turnieju oraz skrocona wersje"))
 			return False#}}}
 
-	def sortPlayers(self):#{{{
-		if (self.random == False):
-			self.tmp = {}
-			for key in self.tournaments[self.uid].players.keys():
-				self.tmp[key] = self.tournaments[self.uid].players[key].rank
-			self.tournaments[self.uid].playerList = sorted(self.tmp, key=self.tmp.get)
-		else:
-			self.tournaments[self.uid].playerList = random.shuffle(self.tournaments[self.uid].players.keys())				#}}}
-
 	def saveTournament(self):#{{{
-		if (checkUID()):
+		if (self.checkUID()):
 			self.tournamentsDB = myZODB.MyZODB(self.dbpath)
 			self.tournaments = self.tournamentsDB.dbroot
 			self.tournaments[self.uid] = tournament.Tournament(self.name, self.uid)
-			sortPlayers()
-			self.tournamentsDB.close()#}}}
+			#### Stworzenie turnieju! musi byc przed odwolywaniem do zmiennych! ####
+			transaction.commit() 
+			self.tournamentsDB.close()
+
+			### Sortowanie graczy ###
+			self.playersdb = myZODB.MyZODB(self.tournaments[self.uid].playersDB)
+			self.players = self.playersdb.dbroot
+			if (self.random == False):
+				self.tmp = {}
+				for key in self.players.keys():
+					self.tmp[key] = self.players[key].rank
+				self.tmp = sorted(self.tmp, key=self.tmp.get)
+			else:
+				self.tmp = copy.copy(self.players.keys())
+				random.shuffle(self.tmp)
+			self.playersdb.close()
+
+			self.tournaments[self.uid].playerList = self.tmp
+			self.tournaments[self.uid].courts = copy.copy(self.courts)
+
+			#### Sprawdzajace zapis ###
+			print "Name: %s, uid: %s " % (self.tournaments[self.uid].name, self.tournaments[self.uid].uid)
+			print "Hasze posortowanych graczy: ", self.tournaments[self.uid].playerList
+			print "Hasze kortow: ", self.tournaments[self.uid].courts
+			self.deleteLater()
+			print "Koniec"#}}}
 			
 		

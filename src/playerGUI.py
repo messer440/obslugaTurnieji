@@ -12,9 +12,10 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 	def __init__(self, tournamentID, parent=None, name=None, fl=0):
 		super(PlayerGUI, self).__init__(parent)
 		self.setupUi(self)
+		self.tournamentID = tournamentID
 		self.otherWindow = None
 		self.playerIdx = 0
-		self.dbpath = 'src/db/players/' + str(tournamentID) + '.fs'
+		self.dbpath = 'src/db/players/' + str(self.tournamentID) + '.fs'
 
 		self.initForm(self.playerIdx)
 
@@ -134,7 +135,7 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		self.initForm(self.playerIdx)#}}}
 
 	def openImport(self):#{{{
-		self.otherWindow = importGUI.ImportGUI()
+		self.otherWindow = importGUI.ImportGUI(self.tournamentID)
 		self.otherWindow.show()#}}}
 
 	def closeEvent(self, event):#{{{

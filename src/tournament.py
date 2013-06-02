@@ -15,15 +15,18 @@ class Tournament(Persistent):
 			self.name = lName
 			self.uid = uid
 
-			### Baza graczy oraz meczy ###
-			self.playersDB = myZODB.MyZODB('src/db/players/' + str(uid) + '.fs')
-			self.players = self.playersDB.dbroot
-			self.matchesDB = myZODB.MyZODB('src/db/matches/' + str(uid) + '.fs')
-			self.matches = self.matchesDB.dbroot
+			#### Sciezki do baz danych ####
+			self.playersDB = 'src/db/players/' + str(uid) + '.fs'
+			self.matchesDB = 'src/db/matches/' + str(uid) + '.fs'
 
 			self.playerList = [] # Posortowana wg okreslonego typu lista graczy
 			self.courts = [] # Lista id kortow na ktorych beda mecze
 		except:
 			QtGui.QMessageBox.warning(self, 'Problem bazy danych',\
 				'Nie mozna utworzyc turnieju!')
-
+	def playerKeys(self):
+		self.tmpDB = myZODB.MyZODB(self.playersDB)
+		self.tmp = self.tmpDB.dbroot
+		self.keys = self.tmp.keys()
+		self.tmpDB.close()
+		return self.keys

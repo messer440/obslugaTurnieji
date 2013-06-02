@@ -27,7 +27,7 @@ except AttributeError:
 class ChooseCourtsGUI(QtGui.QMainWindow):
 	def __init__ (self, courts, parent=None): 
 		super(ChooseCourtsGUI,self).__init__(parent)
-		self.courts = courts
+		self.courtList = courts
 		self.resize(640, 480)
 		self.centralwidget = QtGui.QWidget(self)
 		self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
@@ -84,6 +84,7 @@ class ChooseCourtsGUI(QtGui.QMainWindow):
 
 		### SIGNALS ###
 		self.buttonExit.connect(self.buttonExit, SIGNAL("clicked()"), self.close)
+		self.buttonApply.connect(self.buttonApply, SIGNAL("clicked()"), self.commit)
 
 		self.retranslateUi()
 		QtCore.QMetaObject.connectSlotsByName(self)
@@ -93,4 +94,14 @@ class ChooseCourtsGUI(QtGui.QMainWindow):
 		self.buttonApply.setText(_translate("self", "Zatwierdz", None))
 		self.buttonExit.setText(_translate("self", "Wyjdz", None))
 
+	def commit(self):
+		self.courtsDB = myZODB.MyZODB(self.dbpath)
+		self.courts = self.courtsDB.dbroot
+		self.keys = self.courts.keys()
+		self.courtsDB.close()
+
+		for idx in range(len(self.checkboxes)):
+			if (self.checkboxes[idx].checkState() == 2):
+				self.courtList.append(self.keys[idx])
+		self.close()
 
