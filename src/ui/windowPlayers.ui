@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>935</width>
-    <height>650</height>
+    <height>685</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,27 +23,11 @@
      </widget>
     </item>
     <item row="0" column="0" colspan="2">
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <layout class="QGridLayout" name="gridLayout_4">
       <property name="sizeConstraint">
        <enum>QLayout::SetMaximumSize</enum>
       </property>
-      <item>
-       <widget class="QLabel" name="label">
-        <property name="font">
-         <font>
-          <family>Droid Sans Mono</family>
-          <pointsize>14</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Szukaj</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
+      <item row="0" column="2" rowspan="2">
        <widget class="QTextEdit" name="inputSearch">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
@@ -53,10 +37,62 @@
         </property>
        </widget>
       </item>
-      <item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <family>Droid Sans Mono</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Szukaj:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="comboFilter">
+        <item>
+         <property name="text">
+          <string>Nazwisko</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Imię</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Wiek</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Płeć</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Ranking</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="0" column="3">
        <widget class="QPushButton" name="buttonSearch">
         <property name="text">
          <string>Znajdź</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QPushButton" name="buttonClear">
+        <property name="text">
+         <string>Wyczyść</string>
         </property>
        </widget>
       </item>
@@ -340,7 +376,7 @@
      <x>0</x>
      <y>0</y>
      <width>935</width>
-     <height>24</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlik">
@@ -351,8 +387,16 @@
     <addaction name="actionEksportuj"/>
     <addaction name="separator"/>
     <addaction name="actionZakoncz"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuBaza">
+    <property name="title">
+     <string>Baza</string>
+    </property>
+    <addaction name="actionUsu_baze"/>
    </widget>
    <addaction name="menuPlik"/>
+   <addaction name="menuBaza"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionImportuj">
@@ -368,6 +412,11 @@
   <action name="actionZakoncz">
    <property name="text">
     <string>Zakończ</string>
+   </property>
+  </action>
+  <action name="actionUsu_baze">
+   <property name="text">
+    <string>Usuń baze</string>
    </property>
   </action>
  </widget>

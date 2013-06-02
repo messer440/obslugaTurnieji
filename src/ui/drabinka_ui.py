@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'src/ui/drabinka.ui'
 #
-# Created: Sun Jun  2 10:53:20 2013
+# Created: Sun Jun  2 22:42:27 2013
 #      by: PyQt4 UI code generator 4.10.1
 #
 # WARNING! All changes made in this file will be lost!

@@ -2,7 +2,7 @@
 
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import SIGNAL, SLOT
-import sys, string, re
+import sys, string, re, os
 from src.ui import windowPlayers_ui
 import importGUI
 import player
@@ -15,6 +15,7 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		self.tournamentID = tournamentID
 		self.otherWindow = None
 		self.playerIdx = 0
+		self.count = 0
 		self.dbpath = 'src/db/players/' + str(self.tournamentID) + '.fs'
 
 		self.initForm(self.playerIdx)
@@ -22,6 +23,7 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		### SIGNALS ### #{{{
 		self.actionZakoncz.triggered.connect(self.close)
 		self.actionImportuj.triggered.connect(self.openImport)
+		self.actionUsu_baze.triggered.connect(self.deleteDB)
 		self.buttonZakoncz.connect(self.buttonZakoncz, SIGNAL("clicked()"), self.close)
 		self.buttonNext.connect(self.buttonNext, SIGNAL("clicked()"), self.nextPlayer)
 		self.buttonPrev.connect(self.buttonPrev, SIGNAL("clicked()"), self.prevPlayer)
@@ -30,19 +32,34 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		self.buttonAdd.connect(self.buttonAdd, SIGNAL("clicked()"), self.addPlayer)#}}}
 
 	def initForm(self, playerIdx):#{{{
-		self.playersDB = myZODB.MyZODB(self.dbpath)
-		self.players = self.playersDB.dbroot
-		self.count = len(self.players.keys())
-		self.liczbaGraczyVal.setText(str(self.count))
-		if ((self.count != 0) and (self.count > self.playerIdx)):
-			self.keys = self.players.keys()
-			uid = self.keys[self.playerIdx]
-			self.inputImie.setText(self.players[uid].fName)
-			self.inputNazw.setText(self.players[uid].lName)
-			self.inputWiek.setText(self.players[uid].age)
-			self.inputPlec.setText(self.players[uid].gender)
-			self.inputRank.setText(self.players[uid].rank)
-		self.playersDB.close()#}}}
+		if os.path.exists(self.dbpath):
+			self.playersDB = myZODB.MyZODB(self.dbpath)
+			self.players = self.playersDB.dbroot
+			self.count = len(self.players.keys())
+			self.liczbaGraczyVal.setText(str(self.count))
+
+			if ((self.count != 0) and (self.count > self.playerIdx)):
+				self.keys = self.players.keys()
+				uid = self.keys[self.playerIdx]
+				self.inputImie.setText(self.players[uid].fName)
+				self.inputNazw.setText(self.players[uid].lName)
+				self.inputWiek.setText(self.players[uid].age)
+				self.inputPlec.setText(self.players[uid].gender)
+				self.inputRank.setText(self.players[uid].rank)
+			else:
+				self.setEmptyFields()
+			
+			self.playersDB.close()
+
+		else:
+			self.setEmptyFields()#}}}
+
+	def setEmptyFields(self):
+		self.inputImie.setText('')
+		self.inputNazw.setText('')
+		self.inputWiek.setText('')
+		self.inputPlec.setText('')
+		self.inputRank.setText('')
 
 	def delPlayer(self):#{{{
 		try:
@@ -56,8 +73,7 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 				self.count = len(self.players.keys())
 				transaction.commit()
 			else:
-				QtGui.QMessageBox.information(self, 'Uwaga!',\
-					'Ostatni zawodnik w bazie danych, dokonaj modyfikacji pol!')
+				self.deleteDB()
 			self.playersDB.close()
 		except:
 			QtGui.QMessageBox.warning(self, 'Error bazy danych!',\
@@ -141,3 +157,8 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 	def closeEvent(self, event):#{{{
 		if (self.otherWindow != None):
 			self.otherWindow.close()#}}}
+
+	def deleteDB(self):#{{{
+		os.remove(self.dbpath)
+		self.initForm(self.playerIdx)
+		self.liczbaGraczyVal.setText('0')#}}}
