@@ -31,8 +31,6 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 			
 		self.checkLosowe.connect(self.checkLosowe, SIGNAL("stateChanged(int)"), self.setRandom)
 		self.checkRanking.connect(self.checkRanking, SIGNAL("stateChanged(int)"), self.setRanking)
-
-		self.inputSkrotNazwy.connect(self.inputSkrotNazwy, SIGNAL("textChanged()"), self.checkUID)
 		#}}}
 
 	def setRandom(self,state):#{{{
@@ -121,7 +119,6 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 			print "Name: %s, uid: %s " % (self.tournaments[self.uid].name, self.tournaments[self.uid].uid)
 			print "Hasze posortowanych graczy: ", self.tournaments[self.uid].playerList
 			print "Hasze kortow: ", self.tournaments[self.uid].courts
-			self.deleteLater()
-			print "Koniec"#}}}
+			self.deleteLater() ## ZAMKNIECIE OKNA#}}}
 			
 		

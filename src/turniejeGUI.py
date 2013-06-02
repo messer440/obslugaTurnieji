@@ -11,7 +11,7 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 	def __init__(self, parent=None, name=None, fl=0):
 		super(Turnieje, self).__init__(parent)
 		self.setupUi(self)
-		
+		self.programTree()
 		self.otherWindow = None
 
 		### SIGNALS ####{{{
@@ -29,6 +29,12 @@ class Turnieje(QtGui.QMainWindow, mainWindow_ui.Ui_MainWindow):
 		self.otherWindow = dodajTurniejGUI.DodajTurniejGUI() 
 		self.otherWindow.show()#}}}
 
+	def programTree(self):#{{{
+		self.dirs = ['src/db', 'src/db/players', 'src/db/matches']
+		for dir in self.dirs:
+			if not os.path.exists(dir):
+				os.makedirs(dir)#}}}
+			
 #	def openPlayers(self):#{{{
 #		self.statusbar.showMessage("Edycja graczy")
 #		self.otherWindow = playerGUI.PlayersGUI() 
