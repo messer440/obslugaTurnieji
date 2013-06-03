@@ -16,6 +16,7 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		self.otherWindow = None
 		self.playerIdx = 0
 		self.count = 0
+		
 		self.dbpath = 'src/db/players/' + str(self.tournamentID) + '.fs'
 
 		self.initForm(self.playerIdx)
@@ -24,6 +25,8 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		self.actionZakoncz.triggered.connect(self.close)
 		self.actionImportuj.triggered.connect(self.openImport)
 		self.actionUsu_baze.triggered.connect(self.deleteDB)
+		self.buttonSearch.connect(self.buttonSearch, SIGNAL("clicked()"), self.applySearch)
+		self.buttonClear.connect(self.buttonClear, SIGNAL("clicked()"), self.clearSearch)
 		self.buttonZakoncz.connect(self.buttonZakoncz, SIGNAL("clicked()"), self.close)
 		self.buttonNext.connect(self.buttonNext, SIGNAL("clicked()"), self.nextPlayer)
 		self.buttonPrev.connect(self.buttonPrev, SIGNAL("clicked()"), self.prevPlayer)
@@ -31,21 +34,56 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		self.buttonModif.connect(self.buttonModif, SIGNAL("clicked()"), self.modifPlayer)
 		self.buttonAdd.connect(self.buttonAdd, SIGNAL("clicked()"), self.addPlayer)#}}}
 
+	def setCount(self):#{{{
+		self.searchTerm = str(self.inputSearch.toPlainText()) 
+		self.searchList = []
+		self.playersDB = myZODB.MyZODB(self.dbpath)
+		self.players = self.playersDB.dbroot
+
+		if (self.searchTerm == ''):
+			self.count = len(self.players.keys())
+			self.searchList = self.players.keys()
+		else:
+			self.filterIdx = self.comboFilter.currentIndex()
+			### Wybieranie odpowiednich wartosci wg filtra ###
+			if (self.filterIdx == 0):
+				for playerUID in self.players:
+					if (self.players[playerUID].lName == self.searchTerm):
+						self.searchList.append(playerUID)
+			elif (self.filterIdx == 4): 
+				for playerUID in self.players:
+					if (self.players[playerUID].rank == self.searchTerm):
+						self.searchList.append(playerUID)
+			elif (self.filterIdx == 1):
+				for playerUID in self.players:
+					if (self.players[playerUID].fName == self.searchTerm):
+						self.searchList.append(playerUID)
+			elif (self.filterIdx == 2):
+				for playerUID in self.players:
+					if (self.players[playerUID].age == self.searchTerm):
+						self.searchList.append(playerUID)
+			elif (self.filterIdx == 3):
+				for playerUID in self.players:
+					if (self.players[playerUID].gender == self.searchTerm):
+						self.searchList.append(playerUID)
+			self.count = len(self.searchList)
+		self.playersDB.close()#}}}
+
 	def initForm(self, playerIdx):#{{{
 		if os.path.exists(self.dbpath):
-			self.playersDB = myZODB.MyZODB(self.dbpath)
-			self.players = self.playersDB.dbroot
-			self.count = len(self.players.keys())
+			self.setCount()
 			self.liczbaGraczyVal.setText(str(self.count))
 
 			if ((self.count != 0) and (self.count > self.playerIdx)):
-				self.keys = self.players.keys()
-				uid = self.keys[self.playerIdx]
+				self.playersDB = myZODB.MyZODB(self.dbpath)
+				self.players = self.playersDB.dbroot
+				uid = self.searchList[self.playerIdx]
 				self.inputImie.setText(self.players[uid].fName)
 				self.inputNazw.setText(self.players[uid].lName)
 				self.inputWiek.setText(self.players[uid].age)
 				self.inputPlec.setText(self.players[uid].gender)
 				self.inputRank.setText(self.players[uid].rank)
+				self.playersDB.close()
 			else:
 				self.setEmptyFields()
 			
@@ -54,12 +92,12 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		else:
 			self.setEmptyFields()#}}}
 
-	def setEmptyFields(self):
+	def setEmptyFields(self):#{{{
 		self.inputImie.setText('')
 		self.inputNazw.setText('')
 		self.inputWiek.setText('')
 		self.inputPlec.setText('')
-		self.inputRank.setText('')
+		self.inputRank.setText('')#}}}
 
 	def delPlayer(self):#{{{
 		try:
@@ -137,6 +175,7 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		#}}}
 	
 	def nextPlayer(self):#{{{
+		self.setCount()
 		if (self.playerIdx < self.count-1):
 			self.playerIdx += 1
 		elif (self.count != 0):
@@ -144,6 +183,7 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		self.initForm(self.playerIdx)#}}}
 
 	def prevPlayer(self):#{{{
+		self.setCount()
 		if (self.playerIdx > 0):
 			self.playerIdx -= 1
 		elif (self.count != 0):
@@ -154,9 +194,16 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		self.otherWindow = importGUI.ImportGUI(self.tournamentID)
 		self.otherWindow.show()#}}}
 
+	def applySearch(self):#{{{
+		self.initForm(self.playerIdx)#}}}
+
 	def closeEvent(self, event):#{{{
 		if (self.otherWindow != None):
 			self.otherWindow.close()#}}}
+
+	def clearSearch(self):#{{{
+		self.inputSearch.setText('')
+		self.initForm(self.playerIdx)#}}}
 
 	def deleteDB(self):#{{{
 		os.remove(self.dbpath)
