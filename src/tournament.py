@@ -20,17 +20,8 @@ class Tournament(Persistent):
 			self.matchesDB = 'src/db/matches/' + str(uid) + '.fs'
 
 			self.playerList = [] # Posortowana wg okreslonego typu lista graczy
-			self.courts = [] # Lista id kortow na ktorych beda mecze
+			self.courts = [] # Lista id kortow na ktorych beda mecze	
 
 		except:
 			QtGui.QMessageBox.warning(self, 'Problem bazy danych',\
 				'Nie mozna utworzyc turnieju!')
-#	def sortByRank(self):
-#		self.playerList=sorted(self.playersDB,key lambda player: player.rank)
-#		while math.ceil(math.log(len(self.player)))!=math.log(len(self.player)):
-#			self.playerList.append(player(BYE,"",0,"",9999))	
-#	def RandomOrder(self):
-#		sortByRank()
-#		from random import shuffle
-#		shuffle(self.playerList)
-	

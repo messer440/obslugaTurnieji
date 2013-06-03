@@ -110,6 +110,11 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 			else:
 				self.tmp = copy.copy(self.players.keys())
 				random.shuffle(self.tmp)
+			from math import math
+			i=0
+			while math.ceil(math.log(len(self.tmp)))!=math.log(len(self.tmp)):
+				self.tmp[i]=player(BYE,"",0,"",9999)
+				i=i+1
 			self.playersdb.close()
 
 			self.tournaments[self.uid].playerList = self.tmp
