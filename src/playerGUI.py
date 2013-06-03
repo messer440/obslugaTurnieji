@@ -24,6 +24,7 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		### SIGNALS ### #{{{
 		self.actionZakoncz.triggered.connect(self.close)
 		self.actionImportuj.triggered.connect(self.openImport)
+		self.actionEksportuj.triggered.connect(self.openExport)
 		self.actionUsu_baze.triggered.connect(self.deleteDB)
 		self.buttonSearch.connect(self.buttonSearch, SIGNAL("clicked()"), self.applySearch)
 		self.buttonClear.connect(self.buttonClear, SIGNAL("clicked()"), self.clearSearch)
@@ -189,6 +190,25 @@ class PlayerGUI(QtGui.QMainWindow, windowPlayers_ui.Ui_windowPlayers):
 		elif (self.count != 0):
 			self.playerIdx = self.count - 1
 		self.initForm(self.playerIdx)#}}}
+
+	def openExport(self):#{{{
+		exportedPlayers = 0
+		fname = QtGui.QFileDialog.getSaveFileName(self, 'Zapisz jako', '.')
+		file = open(fname, 'w')
+		try:
+			self.playersDB = myZODB.MyZODB(self.dbpath)
+			self.players = self.playersDB.dbroot
+		except:
+			QtGui.QMessageBox.warning(self, 'Error bazy danych!',\
+					'Baza zawodnikow jest pusta! Przerywam eksport')
+		for player in self.players.values():
+			line = "%s %s %s %s %s\n" % (player.fName, player.lName, player.age, player.gender, player.rank)
+			file.write(line)
+			exportedPlayers += 1
+		
+		self.playersDB.close()
+		QtGui.QMessageBox.information(self, 'Zakonczono eksport',\
+				str("Poprawnie wyeksportowano:\t" + str(exportedPlayers)))#}}}
 
 	def openImport(self):#{{{
 		self.otherWindow = importGUI.ImportGUI(self.tournamentID)
