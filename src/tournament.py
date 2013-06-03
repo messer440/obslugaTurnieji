@@ -1,6 +1,5 @@
 #!/usr/bin/python2.7
 from PyQt4 import QtCore, QtGui
-from math import math
 try:
 	from ZODB import FileStorage, DB
 	import transaction
@@ -26,12 +25,12 @@ class Tournament(Persistent):
 		except:
 			QtGui.QMessageBox.warning(self, 'Problem bazy danych',\
 				'Nie mozna utworzyc turnieju!')
-	def sortByRank(self):
-		self.playerList=sorted(self.playersDB,key lambda player: player.rank)
-		while math.ceil(math.log(len(self.player)))!=math.log(len(self.player)):
-			self.playerList.append(player(BYE,"",0,"",9999))	
-	def RandomOrder(self):
-		sortByRank()
-		from random import shuffle
-		shuffle(self.playerList)
+#	def sortByRank(self):
+#		self.playerList=sorted(self.playersDB,key lambda player: player.rank)
+#		while math.ceil(math.log(len(self.player)))!=math.log(len(self.player)):
+#			self.playerList.append(player(BYE,"",0,"",9999))	
+#	def RandomOrder(self):
+#		sortByRank()
+#		from random import shuffle
+#		shuffle(self.playerList)
 	

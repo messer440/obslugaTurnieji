@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'src/ui/windowTournaments.ui'
 #
-# Created: Sun Jun  2 22:42:28 2013
-#      by: PyQt4 UI code generator 4.10.1
+# Created: Mon Jun  3 10:10:55 2013
+#      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,16 +12,7 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    def _fromUtf8(s):
-        return s
-
-try:
-    _encoding = QtGui.QApplication.UnicodeUTF8
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
-except AttributeError:
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
+    _fromUtf8 = lambda s: s
 
 class Ui_windowTournaments(object):
     def setupUi(self, windowTournaments):
@@ -106,17 +97,17 @@ class Ui_windowTournaments(object):
         QtCore.QMetaObject.connectSlotsByName(windowTournaments)
 
     def retranslateUi(self, windowTournaments):
-        windowTournaments.setWindowTitle(_translate("windowTournaments", "Stwórz turniej", None))
-        self.buttonZapisz.setText(_translate("windowTournaments", "Zapisz", None))
-        self.buttonWybierzZaw.setText(_translate("windowTournaments", "Wybierz ...", None))
-        self.buttonImport.setText(_translate("windowTournaments", "Import z pliku ...", None))
-        self.korty.setText(_translate("windowTournaments", "Korty", None))
-        self.buttonAnuluj.setText(_translate("windowTournaments", "Anuluj", None))
-        self.buttonWybierzKort.setText(_translate("windowTournaments", "Wybierz ...", None))
-        self.rozstawienie.setText(_translate("windowTournaments", "Rozstawienie", None))
-        self.skrotNazwy.setText(_translate("windowTournaments", "Skrócona nazwa", None))
-        self.nazwaTurnieju.setText(_translate("windowTournaments", "Nazwa turnieju", None))
-        self.checkLosowe.setText(_translate("windowTournaments", "Losowe", None))
-        self.checkRanking.setText(_translate("windowTournaments", "wg rankingu", None))
-        self.zawodnicy.setText(_translate("windowTournaments", "Zawodnicy", None))
+        windowTournaments.setWindowTitle(QtGui.QApplication.translate("windowTournaments", "Stwórz turniej", None, QtGui.QApplication.UnicodeUTF8))
+        self.buttonZapisz.setText(QtGui.QApplication.translate("windowTournaments", "Zapisz", None, QtGui.QApplication.UnicodeUTF8))
+        self.buttonWybierzZaw.setText(QtGui.QApplication.translate("windowTournaments", "Wybierz ...", None, QtGui.QApplication.UnicodeUTF8))
+        self.buttonImport.setText(QtGui.QApplication.translate("windowTournaments", "Import z pliku ...", None, QtGui.QApplication.UnicodeUTF8))
+        self.korty.setText(QtGui.QApplication.translate("windowTournaments", "Korty", None, QtGui.QApplication.UnicodeUTF8))
+        self.buttonAnuluj.setText(QtGui.QApplication.translate("windowTournaments", "Anuluj", None, QtGui.QApplication.UnicodeUTF8))
+        self.buttonWybierzKort.setText(QtGui.QApplication.translate("windowTournaments", "Wybierz ...", None, QtGui.QApplication.UnicodeUTF8))
+        self.rozstawienie.setText(QtGui.QApplication.translate("windowTournaments", "Rozstawienie", None, QtGui.QApplication.UnicodeUTF8))
+        self.skrotNazwy.setText(QtGui.QApplication.translate("windowTournaments", "Skrócona nazwa", None, QtGui.QApplication.UnicodeUTF8))
+        self.nazwaTurnieju.setText(QtGui.QApplication.translate("windowTournaments", "Nazwa turnieju", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkLosowe.setText(QtGui.QApplication.translate("windowTournaments", "Losowe", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkRanking.setText(QtGui.QApplication.translate("windowTournaments", "wg rankingu", None, QtGui.QApplication.UnicodeUTF8))
+        self.zawodnicy.setText(QtGui.QApplication.translate("windowTournaments", "Zawodnicy", None, QtGui.QApplication.UnicodeUTF8))
 
