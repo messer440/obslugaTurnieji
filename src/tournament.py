@@ -27,12 +27,12 @@ class Tournament(Persistent):
 		self.matchesDB=myZODB.MyZODB(self.matchesDBPath)
 		self.matches=self.matchesDB.dbroot
 		i=0
-		while i<len(playerlist)
+		while i<len(playerlist):
 			addMatch(match(players=[playerlist[playerlist.keys()[i]],playerlist[playerlist.keys()[-(i+1)]]]))
 		transaction.commit()
 		self.tournamentsDB.close()		
 	def addMatch(self,players):
-		self.matches[self.matchid] = match.Match(players=players))
+		self.matches[self.matchid] = match.Match(players=players)
 		self.matchid=self.matchid+1
 		
 		
