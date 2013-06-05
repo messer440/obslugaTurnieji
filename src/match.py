@@ -18,6 +18,8 @@ class Match(object):
 			self.players.append(plyer)
 	def addResult(self,points)
 		self.points=points
+		self.ended=True
 	def addResult(self,p1,p2)
 		addResult([p1,p2])
+	
 		

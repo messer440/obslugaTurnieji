@@ -14,14 +14,26 @@ class Tournament(Persistent):
 		try:
 			self.name = lName
 			self.uid = uid
-
 			#### Sciezki do baz danych ####
-			self.playersDB = 'src/db/players/' + str(uid) + '.fs'
-			self.matchesDB = 'src/db/matches/' + str(uid) + '.fs'
-
-			self.playerList = [] # Posortowana wg okreslonego typu lista graczy
-			self.courts = [] # Lista id kortow na ktorych beda mecze	
-
+			self.playersDBPath = 'src/db/players/' + str(uid) + '.fs'
+			self.matchesDBPath = 'src/db/matches/' + str(uid) + '.fs'
+			this.matchId=0;
+			#self.playerList = [] # Posortowana wg okreslonego typu lista graczy
+		#	self.courts = [] # Lista id kortow na ktorych beda mecze
 		except:
 			QtGui.QMessageBox.warning(self, 'Problem bazy danych',\
 				'Nie mozna utworzyc turnieju!')
+	def createMatchList(self,playerlist):
+		self.matchesDB=myZODB.MyZODB(self.matchesDBPath)
+		self.matches=self.matchesDB.dbroot
+		i=0
+		while i<len(playerlist)
+			addMatch(match(players=[playerlist[playerlist.keys()[i]],playerlist[playerlist.keys()[-(i+1)]]]))
+		transaction.commit()
+		self.tournamentsDB.close()		
+	def addMatch(self,players):
+		self.matches[self.matchid] = match.Match(players=players))
+		self.matchid=self.matchid+1
+		
+		
+		
