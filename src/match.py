@@ -9,6 +9,7 @@ except:
 import myZODB
 
 class Match(object):
+	sredniCzasTrwania=60
 	def __init__(self,plyers=None,points=None)
 		self.players = players
 		self.ended = False
