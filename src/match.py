@@ -10,17 +10,24 @@ import myZODB
 
 class Match(object):
     sredniCzasTrwania=60
-    def __init__(self,plyers=None,points=None):
-        self.players = players
+    def __init__(self,players=None,points=None):
+        if players!=None:
+            self.players = players
+        else:
+            self.players=[]
         self.ended = False
-        self.points = points
-	def addPlayer(self, player):
-		if players.length<2:
-			self.players.append(plyer)
-	def addResult(self,points):
+        if points!=None:
+            self.points = points
+        else:
+            self.points=2*[None]
+        
+    def addPlayer(self, player):
+		if len(self.players)<2:
+			self.players.append(player)
+    def addResult(self,points):
 		self.points=points
 		self.ended=True
-	def addResult(self,p1,p2):
+    def addResult(self,p1,p2):
 		addResult([p1,p2])
 	
 		

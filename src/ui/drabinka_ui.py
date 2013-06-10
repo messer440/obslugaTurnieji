@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'src/ui/drabinka.ui'
+# Form implementation generated from reading ui file 'drabinka.ui'
 #
-# Created: Mon Jun  3 10:10:55 2013
-#      by: PyQt4 UI code generator 4.9.1
+# Created: Mon Jun 10 01:20:20 2013
+#      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -17,7 +17,9 @@ except AttributeError:
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
-        Form.resize(927, 475)
+        Form.resize(1500, 900)
+        Form.setMinimumSize(QtCore.QSize(1500, 900))
+        Form.setMaximumSize(QtCore.QSize(1500, 900))
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
