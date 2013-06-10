@@ -44,7 +44,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>Imie i nazwisko</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -57,7 +57,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>Imie i nazwisko</string>
    </property>
   </widget>
   <widget class="QSpinBox" name="spinBox">
@@ -90,7 +90,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>Zakoncz mecz</string>
    </property>
   </widget>
  </widget>

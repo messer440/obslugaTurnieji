@@ -25,6 +25,19 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QPushButton" name="saveButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>141</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Zapisz wyniki meczy</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
