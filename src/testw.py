@@ -5,6 +5,9 @@ import sys, string, re, os
 import player
 from tournament import Tournament
 app = QtGui.QApplication(sys.argv)
-mainWindow = drabinkaGUI.drabinkaGUI(16*[player.Player( ['piotr',' waszkiewicz- nowak',' c', 'd','e']  ), player.Player( ['krzysztof', 'cach- kowalski','a2', 'a3', 'a4' ]  )    ], text_parent=Tournament("ala","a" ))
+t=Tournament("atgsahgajj", "hdgytra")
+t.createMatchList()
+mainWindow = drabinkaGUI.drabinkaGUI(text_parent=t)
+
 mainWindow.show()
 sys.exit(app.exec_())

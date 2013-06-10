@@ -15,14 +15,13 @@ class matchGUI(QtGui.QWidget, mecz_ui.Ui_Form):
         self.otherWindow = None
         
         #self.initForm(self.playerId)
-        if text_match!= None : 
-            self.match=text_match
+        self.match=text_match
+        if  self.match.players!=[]:
             self.label.setText(self.match.players[0].fName+" "+self.match.players[0].lName)
             self.label_2.setText(self.match.players[1].fName+" "+self.match.players[1].lName)
             self.noOfPlayers=2
         else:
             self.noOfPlayers=0
-            self.match=Match()
         
         self.setGeometry(posx, posy, 100, 100)
       #  self.initForm()
