@@ -77,7 +77,7 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 
 	def openImportPlayer(self):#{{{
 		if (self.checkUID()):
-			self.otherWindow = importGUI.ImportGUI()
+			self.otherWindow = importGUI.ImportGUI(self.uid)
 			self.otherWindow.show()#}}}
 
 	def getId(self):#{{{
