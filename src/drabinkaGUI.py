@@ -19,14 +19,14 @@ class drabinkaGUI(QtGui.QMainWindow,  drabinka_ui.Ui_Form):
         self.w=230
         self.text_parent=text_parent
         
-        for i in range(0, potega-1):
+        for i in range(0, potega-2):
             self.poziom=[]
             for j in range (0, 2**i):
                 self.poziom.append(matchGUI.matchGUI( (2*j+1)*self.width()/(2**(i+1)  )-self.w/2 , i*150,  parent=self, text_match=self.text_parent.matches[i][j]) )
             self.mecze.append(self.poziom)
         self.poziom=[]
-        for k in range(0, 2**(potega), 2):
-            self.poziom.append(matchGUI.matchGUI( (k+1)*self.width()/(2**(potega)  )-self.w/2 , (potega-1)*150, text_match=self.text_parent.matches[potega-1][k],  parent=self) )
+        for k in range(0, 2**(potega-1), 2):
+            self.poziom.append(matchGUI.matchGUI( (k+1)*self.width()/(2**(potega-1)  )-self.w/2 , (potega-2)*150, text_match=self.text_parent.matches[potega-2][k],  parent=self) )
         self.mecze.append(self.poziom)
         
         

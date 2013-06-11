@@ -118,6 +118,7 @@ class DodajTurniejGUI(QtGui.QMainWindow, windowTournaments_ui.Ui_windowTournamen
 			self.playersdb.close()
 			self.tournaments[self.uid].playerList = self.tmp
 			self.tournaments[self.uid].courts = copy.copy(self.courts)
+			self.tournaments[self.uid].createMatchList()
 			#### Sprawdzajace zapis ###
 			print "Name: %s, uid: %s " % (self.tournaments[self.uid].name, self.tournaments[self.uid].uid)
 			print "Hasze posortowanych graczy: ", self.tournaments[self.uid].playerList
